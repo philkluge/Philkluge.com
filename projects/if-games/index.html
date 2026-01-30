@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Games - Phil Kluge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lights-bg" id="lightsContainer"></div>
+    <div class="crt-effect"></div>
+    <div class="tv-flicker"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="static" id="staticEl"></div>
+    
+    <!-- Navigation zurück -->
+    <nav class="back-nav">
+        <a href="../../index.html" class="back-btn">
+            <span>← BACK TO MAIN</span>
+        </a>
+    </nav>
+
+    <!-- Header mit Logo und Info -->
+    <section class="project-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="If Games Logo" class="project-logo">
+            </div>
+            <h1 class="project-title"></h1>
+            <p class="project-tagline">Game Launcher</p>
+            <p class="project-description">
+                If Games is a powerful game launcher that brings all your games into one Library. 
+                Manage, organize, and launch all your favorite games from one application.
+            </p>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <h2 class="section-title">DOWNLOAD</h2>
+        <div class="download-container">
+            <div class="download-card latest">
+                <div class="version-badge">LATEST</div>
+                <h3>Version 8.0.0</h3>
+                <p class="release-date">Released: In public preview</p>
+                <ul class="feature-list">
+                    <li>New UI improvements</li>
+                    <li>Bug fixes and performance optimizations</li>
+                    <li>Added offline mode</li>
+                </ul>
+                <a href="downloads/if-games-v8.0.0.exe" class="download-btn" download>
+                    <span>DOWNLOAD</span>
+                </a>
+            </div>
+            
+            <div class="download-card">
+                <div class="version-badge beta">BETA</div>
+                <h3>Version 7.3.0</h3>
+                <p class="release-date">Released: 3/8/2025</p>
+                <ul class="feature-list">
+                    <li>Proof of concept</li>
+                    <li>Test application for Funktion Tests</li>
+                    <li>Currently disabled</li>
+                </ul>
+                <a href="downloads/if-games-v7.3.0.exe" class="download-btn secondary" download aria-disabled="true">
+                    <span>DISABLED</span>
+                </a>
+            </div>
+
+            <div class="download-card">
+                <h3>Version 1.0 - 6.0</h3>
+                <p class="release-date">hall of fame or shame</p>
+                <ul class="feature-list">
+                    <li>Old versions</li>
+                </ul>
+                <a href="downloads/if-games-v1.1.0.exe" class="download-btn secondary" download>
+                    <span>show</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots-section">
+        <h2 class="section-title">SCREENSHOTS</h2>
+        <div class="screenshots-grid">
+            <div class="screenshot-item">
+                <img src="screenshots/screenshot1.png" alt="If Games Screenshot 1">
+                <div class="screenshot-overlay">
+                    <span>Main Interface</span>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/screenshot2.png" alt="If Games Screenshot 2">
+                <div class="screenshot-overlay">
+                    <span>Acc Details</span>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/screenshot3.png" alt="If Games Screenshot 3">
+                <div class="screenshot-overlay">
+                    <span>Game Library</span>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/screenshot4.png" alt="If Games Screenshot 4">
+                <div class="screenshot-overlay">
+                    <span>Discover Games</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">FEATURES</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>One Library</h3>
+                <p>All your games in one place.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Quick Launch</h3>
+                <p>Start your games instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Themes</h3>
+                <p>Personalize your launcher with themes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="requirements-section">
+        <h2 class="section-title">REQUIREMENTS</h2>
+        <div class="requirements-container">
+            <div class="requirements-col">
+                <h3>Minimum</h3>
+                <ul>
+                    <li><strong>OS:</strong> Windows 10 32-bit</li>
+                    <li><strong>Processor:</strong> AMD Ryzen 3 or equivalent</li>
+                    <li><strong>Memory:</strong> 2 GB RAM</li>
+                    <li><strong>Storage:</strong> 200 MB available space</li>
+                </ul>
+            </div>
+            <div class="requirements-col">
+                <h3>Recommended</h3>
+                <ul>
+                    <li><strong>OS:</strong> Windows 11 64-bit</li>
+                    <li><strong>Processor:</strong> AMD Ryzen 5 or equivalent</li>
+                    <li><strong>Memory:</strong> 4 GB RAM</li>
+                    <li><strong>Storage:</strong> 500 MB available space</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
