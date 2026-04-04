@@ -1,48 +1,54 @@
+<!-- V.6.1 Space Theme -->
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>If Games - Phil Kluge</title>
+    <meta name="description" content="If Games – Game Launcher by Phil Kluge">
+    <meta name="author" content="Phil Kluge">
+    <meta name="theme-color" content="#000010">
+    <title>If Games – Phil Kluge</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../project.css">
 </head>
 <body>
-    <div class="lights-bg" id="lightsContainer"></div>
-    <div class="crt-effect"></div>
-    <div class="tv-flicker"></div>
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
-    <div class="static" id="staticEl"></div>
-    
-    <!-- Navigation zurück -->
+
+    <!-- Background -->
+    <canvas id="starsCanvas" aria-hidden="true"></canvas>
+    <div class="nebula-bg" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="static" id="staticEl" aria-hidden="true"></div>
+
     <nav class="back-nav">
-        <a href="../../index.html" class="back-btn">
-            <span>← BACK TO MAIN</span>
-        </a>
+        <a href="../../index.html" class="back-btn" aria-label="Back to main page">← BACK TO MAIN</a>
     </nav>
 
-    <!-- Header mit Logo und Info -->
-    <section class="project-header">
+    <section class="project-header" aria-labelledby="project-title">
         <div class="header-content">
             <div class="logo-container">
                 <img src="logo.png" alt="If Games Logo" class="project-logo">
             </div>
-            <h1 class="project-title"></h1>
+            <h1 id="project-title" class="project-title">IF GAMES</h1>
             <p class="project-tagline">Game Launcher</p>
+            <div class="header-divider"></div>
             <p class="project-description">
-                If Games is a powerful game launcher that brings all your games into one Library. 
-                Manage, organize, and launch all your favorite games from one application.
+                A powerful game launcher that brings all your games into one convenient application.
+                Manage, organize, and launch all your favorite games from a single, unified interface.
             </p>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section class="download-section">
-        <h2 class="section-title">DOWNLOAD</h2>
+    <section class="download-section" aria-labelledby="download-title">
+        <h2 id="download-title" class="section-title">
+            <span class="section-prefix">./</span>DOWNLOAD
+        </h2>
         <div class="download-container">
+
             <div class="download-card latest">
                 <div class="version-badge">LATEST</div>
                 <h3>Version 8.0.0</h3>
@@ -52,95 +58,89 @@
                     <li>Bug fixes and performance optimizations</li>
                     <li>Added offline mode</li>
                 </ul>
-                <a href="downloads/if-games-v8.0.0.exe" class="download-btn" download>
-                    <span>DOWNLOAD</span>
-                </a>
+                <a href="downloads/if-games-v1.3.0.exe" class="download-btn" download>DOWNLOAD NOW</a>
             </div>
-            
+
+            <div class="download-card">
+                <h3>Version 0.0.0</h3>
+                <p class="release-date">Released: 0/0/0000</p>
+                <ul class="feature-list">
+                    <li>--</li>
+                    <li>--</li>
+                </ul>
+                <a href="downloads/if-games-v1.1.0.exe" class="download-btn secondary" download>DOWNLOAD</a>
+            </div>
+
             <div class="download-card">
                 <div class="version-badge beta">BETA</div>
                 <h3>Version 7.3.0</h3>
                 <p class="release-date">Released: 3/8/2025</p>
                 <ul class="feature-list">
                     <li>Proof of concept</li>
-                    <li>Test application for Funktion Tests</li>
-                    <li>Currently disabled</li>
+                    <li>Test application</li>
                 </ul>
-                <a href="downloads/if-games-v7.3.0.exe" class="download-btn secondary" download aria-disabled="true">
-                    <span>DISABLED</span>
-                </a>
-            </div>
-
-            <div class="download-card">
-                <h3>Version 1.0 - 6.0</h3>
-                <p class="release-date">hall of fame or shame</p>
-                <ul class="feature-list">
-                    <li>Old versions</li>
-                </ul>
-                <a href="downloads/if-games-v1.1.0.exe" class="download-btn secondary" download>
-                    <span>show</span>
-                </a>
+                <a href="downloads/if-games-v1.0.0.exe" class="download-btn secondary" download>DOWNLOAD</a>
             </div>
 
         </div>
     </section>
 
-    <!-- Screenshots Section -->
-    <section class="screenshots-section">
-        <h2 class="section-title">SCREENSHOTS</h2>
+    <section class="screenshots-section" aria-labelledby="screenshots-title">
+        <h2 id="screenshots-title" class="section-title">
+            <span class="section-prefix">./</span>SCREENSHOTS
+        </h2>
         <div class="screenshots-grid">
             <div class="screenshot-item">
-                <img src="screenshots/screenshot1.png" alt="If Games Screenshot 1">
-                <div class="screenshot-overlay">
-                    <span>Main Interface</span>
-                </div>
+                <img src="screenshots/screenshot1.png" alt="If Games – Main Interface">
+                <div class="screenshot-overlay"><span>Main Interface</span></div>
             </div>
             <div class="screenshot-item">
-                <img src="screenshots/screenshot2.png" alt="If Games Screenshot 2">
-                <div class="screenshot-overlay">
-                    <span>Acc Details</span>
-                </div>
+                <img src="screenshots/screenshot2.png" alt="If Games – Game Library">
+                <div class="screenshot-overlay"><span>Game Library</span></div>
             </div>
             <div class="screenshot-item">
-                <img src="screenshots/screenshot3.png" alt="If Games Screenshot 3">
-                <div class="screenshot-overlay">
-                    <span>Game Library</span>
-                </div>
+                <img src="screenshots/screenshot3.png" alt="If Games – Settings Panel">
+                <div class="screenshot-overlay"><span>Settings Panel</span></div>
             </div>
             <div class="screenshot-item">
-                <img src="screenshots/screenshot4.png" alt="If Games Screenshot 4">
-                <div class="screenshot-overlay">
-                    <span>Discover Games</span>
-                </div>
+                <img src="screenshots/screenshot4.png" alt="If Games – Game Details">
+                <div class="screenshot-overlay"><span>Game Details</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <h2 class="section-title">FEATURES</h2>
+    <section class="features-section" aria-labelledby="features-title">
+        <h2 id="features-title" class="section-title">
+            <span class="section-prefix">./</span>FEATURES
+        </h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🎮</div>
+                <span class="feature-icon">🎮</span>
                 <h3>One Library</h3>
-                <p>All your games in one place.</p>
+                <p>All your games in one place, regardless of where they came from.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
+                <span class="feature-icon">⚡</span>
                 <h3>Quick Launch</h3>
-                <p>Start your games instantly.</p>
+                <p>Start your games instantly with a single click.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
+                <span class="feature-icon">☁️</span>
+                <h3>Offline Mode</h3>
+                <p>Access and launch your games even without an internet connection.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
                 <h3>Custom Themes</h3>
-                <p>Personalize your launcher with themes.</p>
+                <p>Personalize your launcher with custom themes and layouts.</p>
             </div>
         </div>
     </section>
 
-    <!-- System Requirements -->
-    <section class="requirements-section">
-        <h2 class="section-title">REQUIREMENTS</h2>
+    <section class="requirements-section" aria-labelledby="requirements-title">
+        <h2 id="requirements-title" class="section-title">
+            <span class="section-prefix">./</span>SYSTEM REQUIREMENTS
+        </h2>
         <div class="requirements-container">
             <div class="requirements-col">
                 <h3>Minimum</h3>
@@ -163,6 +163,6 @@
         </div>
     </section>
 
-    <script src="app.js"></script>
+    <script src="../project.js"></script>
 </body>
 </html>
