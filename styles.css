@@ -1,4 +1,4 @@
-/* V.6.0 Space Theme */
+/* V.6.1 Space Theme */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
 
 :root {
@@ -35,7 +35,6 @@ body {
     font-family: var(--font-mono);
 }
 
-/* ── Stars Canvas ── */
 #starsCanvas {
     position: fixed;
     top: 0; left: 0;
@@ -44,7 +43,6 @@ body {
     pointer-events: none;
 }
 
-/* ── Nebula Background ── */
 .nebula-bg {
     position: fixed;
     top: 0; left: 0;
@@ -65,7 +63,6 @@ body {
     100% { opacity: 0.8; }
 }
 
-/* ── Static Noise ── */
 .static {
     position: fixed;
     top: 0; left: 0;
@@ -76,7 +73,6 @@ body {
     will-change: background-image;
 }
 
-/* ── Scanlines ── */
 .scanlines {
     position: fixed;
     top: 0; left: 0;
@@ -99,7 +95,6 @@ body {
     100% { transform: translateY(8px); }
 }
 
-/* ── Vignette ── */
 .vignette {
     position: fixed;
     top: 0; left: 0;
@@ -109,9 +104,6 @@ body {
     background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,6,0.85) 100%);
 }
 
-/* ══════════════════════════════════════
-   HERO
-══════════════════════════════════════ */
 .hero {
     height: 100vh;
     display: flex;
@@ -246,9 +238,6 @@ body {
     60%  { transform: translateY(-4px); }
 }
 
-/* ══════════════════════════════════════
-   PROJECTS
-══════════════════════════════════════ */
 .projects {
     min-height: 100vh;
     padding: 100px 20px 80px;
@@ -284,7 +273,6 @@ body {
     padding: 20px;
 }
 
-/* ── Project Cards ── */
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -361,7 +349,6 @@ body {
     opacity: 1;
 }
 
-/* Card Content */
 .card-id {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -434,9 +421,6 @@ body {
     color: #fff;
 }
 
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
 .footer {
     padding: 40px 20px;
     text-align: center;
@@ -467,9 +451,6 @@ body {
     opacity: 0.6;
 }
 
-/* ══════════════════════════════════════
-   ANIMATIONS HELPERS
-══════════════════════════════════════ */
 @keyframes fadeSlideDown {
     from { opacity: 0; transform: translateY(-15px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -480,9 +461,7 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
+
 @media (max-width: 768px) {
     .title {
         font-size: 2.8rem;
