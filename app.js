@@ -1,8 +1,5 @@
-// V.6.0 Space Theme
+// V.6.1 Space Theme
 
-// ──────────────────────────────────────────
-// Stars Canvas – particle starfield + shooting stars
-// ──────────────────────────────────────────
 class StarfieldRenderer {
     constructor(canvas) {
         this.canvas = canvas;
@@ -99,13 +96,13 @@ class StarfieldRenderer {
             }
         });
 
-        // ── spawn shooting stars ──
+        // ── spawn ──
         if (timestamp - this.lastShootingStarTime > (Math.random() * 4000 + 3000)) {
             this.spawnShootingStar();
             this.lastShootingStarTime = timestamp;
         }
 
-        // ── draw + update shooting stars ──
+        // ── shooting stars ──
         this.shootingStars = this.shootingStars.filter(s => s.alpha > 0.02);
 
         this.shootingStars.forEach(s => {
@@ -116,7 +113,7 @@ class StarfieldRenderer {
             s.y += s.vy;
             s.alpha -= 0.022;
 
-            // draw trail
+            // trail
             if (s.trail.length > 1) {
                 ctx.beginPath();
                 ctx.moveTo(s.trail[0].x, s.trail[0].y);
@@ -135,7 +132,7 @@ class StarfieldRenderer {
                 ctx.stroke();
             }
 
-            // head glow
+            // glow
             const headGrad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 4);
             headGrad.addColorStop(0, `rgba(255,255,255,${s.alpha})`);
             headGrad.addColorStop(1, 'transparent');
@@ -163,9 +160,6 @@ class StarfieldRenderer {
     }
 }
 
-// ──────────────────────────────────────────
-// Static Noise
-// ──────────────────────────────────────────
 class StaticEffectManager {
     constructor(config, element) {
         this.config = config;
@@ -211,9 +205,6 @@ class StaticEffectManager {
     }
 }
 
-// ──────────────────────────────────────────
-// Performance Config
-// ──────────────────────────────────────────
 class PerformanceConfig {
     constructor() {
         this.screenWidth  = window.innerWidth;
@@ -236,9 +227,6 @@ class PerformanceConfig {
     }
 }
 
-// ──────────────────────────────────────────
-// Responsive Handler
-// ──────────────────────────────────────────
 class ResponsiveHandler {
     constructor(onBreakpointChange) {
         this.currentWidth = window.innerWidth;
@@ -269,9 +257,6 @@ class ResponsiveHandler {
     }
 }
 
-// ──────────────────────────────────────────
-// Project Card Handler
-// ──────────────────────────────────────────
 class ProjectCardHandler {
     constructor() {
         this.grid = document.querySelector('.projects-grid');
@@ -314,9 +299,6 @@ class ProjectCardHandler {
     }
 }
 
-// ──────────────────────────────────────────
-// App
-// ──────────────────────────────────────────
 class App {
     constructor() {
         this.starfield = null;
