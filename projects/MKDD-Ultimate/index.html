@@ -1,105 +1,107 @@
-<!-- V.6.0 Space Theme -->
+<!-- V.1.0 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MKDD-Ultimate by T.E.D.D">
-    <meta name="author" content="Phil Kluge">
-    <meta name="theme-color" content="#000010">
-    <title>MKDD-Ultimate</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MKDD-Ultimate by T.E.D.D">
+        <meta name="author" content="Phil Kluge">
+        <meta name="theme-color" content="#000000">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <title>MKDD-Ultimate</title>
 
-    <link rel="stylesheet" href="../project.css">
-</head>
-<body>
+        <link rel="icon" type="image/png" href="/Themes/SRC/PK Logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-    <!-- Background -->
-    <canvas id="starsCanvas" aria-hidden="true"></canvas>
-    <div class="nebula-bg" aria-hidden="true"></div>
-    <div class="scanlines" aria-hidden="true"></div>
-    <div class="vignette" aria-hidden="true"></div>
-    <div class="static" id="staticEl" aria-hidden="true"></div>
+        <link rel="stylesheet" href="/Themes/Artemis II/index.css">
+        <script src="/Themes/Artemis II/index.js"></script>
+    </head>
+    <body>
+        <!-- Effects -->
+        <canvas id="Canvas" aria-hidden="true"></canvas>
+        <div class="Background" aria-hidden="true"></div>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="vignette" aria-hidden="true"></div>
+        <div class="static" id="staticEl" aria-hidden="true"></div>
 
-    <nav class="back-nav">
-        <a href="../../index.html" class="back-btn" aria-label="Back to main page">← BACK TO MAIN</a>
-    </nav>
+        <nav class="back-nav">
+            <a href="../../index.html" class="back-btn" aria-label="Back to main page">← BACK TO MAIN</a>
+        </nav>
 
-    <section class="project-header" aria-labelledby="project-title">
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="logo.png" alt="If Games Logo" class="project-logo">
+        <section class="project-header" aria-labelledby="project-title">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="logo.png" alt="If Games Logo" class="project-logo">
+                </div>
+                <h1 id="project-title" class="project-title">MKDD Ultimate</h1>
+                <p class="project-tagline">Mario kart: double dash!!</p>
+                <div class="header-divider"></div>
+                <p class="project-description">
+                    is a comprehensive Mario Kart Double Dash!! mod featuring new & retro tracks,
+                    an expanded characters roster, kart & character skins, and more.
+                </p>
             </div>
-            <h1 id="project-title" class="project-title">MKDD Ultimate</h1>
-            <p class="project-tagline">Mario kart: double dash!!</p>
-            <div class="header-divider"></div>
-            <p class="project-description">
-                is a comprehensive Mario Kart Double Dash!! mod featuring new & retro tracks,
-                an expanded characters roster, kart & character skins, and more.
-            </p>
-        </div>
-    </section>
+        </section>
 
-    <section class="screenshots-section" aria-labelledby="screenshots-title">
-        <h2 id="screenshots-title" class="section-title">
-            <span class="section-prefix"></span>SCREENSHOTS
-        </h2>
-        <div class="screenshots-grid">
-            <div class="screenshot-item">
-                <img src="screenshots/screenshot1.png" alt="Title screen">
-                <div class="screenshot-overlay"><span>Title screen</span></div>
+        <section class="screenshots-section" aria-labelledby="screenshots-title">
+            <h2 id="screenshots-title" class="section-title">
+                <span class="section-prefix"></span>SCREENSHOTS
+            </h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="screenshots/screenshot1.png" alt="Title screen">
+                    <div class="screenshot-overlay"><span>Title screen</span></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="features-section" aria-labelledby="features-title">
-        <h2 id="features-title" class="section-title">
-            <span class="section-prefix"></span>FEATURES
-        </h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">☐☐<br>☐</span>
-                <h3>Characters roster</h3>
-                <p>10 additional playable characters in the characters roster</p>
+        <section class="features-section" aria-labelledby="features-title">
+            <h2 id="features-title" class="section-title">
+                <span class="section-prefix"></span>FEATURES
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">☐☐<br>☐</span>
+                    <h3>Characters roster</h3>
+                    <p>10 additional playable characters in the characters roster</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🟥🟦<br>🟩</span>
+                    <h3>Characters skins</h3>
+                    <p>Each character gets 3 additional skins</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌃🌆<br>🌇</span>
+                    <h3>Multi version Maps</h3>
+                    <p>Some tracks have different versions. The game randomly selects which version to play</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">░░ ▒▒<br>▓▓</span>
+                    <h3>Textures</h3>
+                    <p>New & higher-resolution textures</p>
+                </div>
             </div>
-            <div class="feature-card">
-                <span class="feature-icon">🟥🟦<br>🟩</span>
-                <h3>Characters skins</h3>
-                <p>Each character gets 3 additional skins</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🌃🌆<br>🌇</span>
-                <h3>Multi version Maps</h3>
-                <p>Some tracks have different versions. The game randomly selects which version to play</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">░░ ▒▒<br>▓▓</span>
-                <h3>Textures</h3>
-                <p>New & higher-resolution textures</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="requirements-section" aria-labelledby="requirements-title">
-        <h2 id="requirements-title" class="section-title">
-            <span class="section-prefix"></span>REQUIREMENTS
-        </h2>
-        <div class="requirements-container">
-            <div class="requirements-col">
-                <h3>!This mod doesn't work on original hardware!</h3>
-                <ul>
-                    <li><strong>Dolphin emulator:</strong> Newes version</li>
-                    <li><strong>Config -> Advanced:</strong> ☑ Enable Emulated Memory Size Override</li>
-                    <li><strong>Config -> Advanced:</strong> 64 MB (MEM1)</li>
-                    <li><strong>Config -> Advanced:</strong> 128 MB (MEM2)</li>
-                </ul>
+        <section class="requirements-section" aria-labelledby="requirements-title">
+            <h2 id="requirements-title" class="section-title">
+                <span class="section-prefix"></span>REQUIREMENTS
+            </h2>
+            <div class="requirements-container">
+                <div class="requirements-col">
+                    <h3>!This mod doesn't work on original hardware!</h3>
+                    <ul>
+                        <li><strong>Dolphin emulator:</strong> Newes version</li>
+                        <li><strong>Config -> Advanced:</strong> ☑ Enable Emulated Memory Size Override</li>
+                        <li><strong>Config -> Advanced:</strong> 64 MB (MEM1)</li>
+                        <li><strong>Config -> Advanced:</strong> 128 MB (MEM2)</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script src="../project.js"></script>
-</body>
+        <script src="../project.js"></script>
+    </body>
 </html>

@@ -1,5 +1,4 @@
-// V.6.1 Space Theme
-
+// V.1.0 Artemis II
 class StarfieldRenderer {
     constructor(canvas) {
         this.canvas = canvas;
@@ -9,21 +8,21 @@ class StarfieldRenderer {
         this.animationId = null;
         this.isRunning = false;
         this.lastShootingStarTime = 0;
-
+ 
         this.resize();
         window.addEventListener('resize', () => this.resize());
     }
-
+ 
     resize() {
         this.canvas.width  = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.generateStars();
     }
-
+ 
     generateStars() {
         const count = Math.floor((this.canvas.width * this.canvas.height) / 3500);
         this.stars = [];
-
+ 
         for (let i = 0; i < count; i++) {
             const size = Math.random();
             this.stars.push({
@@ -43,14 +42,14 @@ class StarfieldRenderer {
             });
         }
     }
-
+ 
     spawnShootingStar() {
         const startX = Math.random() * this.canvas.width * 0.7;
         const startY = Math.random() * this.canvas.height * 0.4;
         const angle  = (Math.random() * 20 + 20) * (Math.PI / 180); // 20-40°
         const speed  = Math.random() * 8 + 6;
         const length = Math.random() * 150 + 80;
-
+ 
         this.shootingStars.push({
             x: startX, y: startY,
             vx: Math.cos(angle) * speed,
@@ -60,26 +59,26 @@ class StarfieldRenderer {
             trail: [],
         });
     }
-
+ 
     draw(timestamp) {
         const ctx = this.ctx;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
+ 
         // ── static stars ──
         this.stars.forEach(star => {
             star.twinklePhase += star.twinkleSpeed;
             const a = star.alpha * (0.6 + 0.4 * Math.sin(star.twinklePhase));
-
+ 
             if (star.sat === 0) {
                 ctx.fillStyle = `rgba(255,255,255,${a})`;
             } else {
                 ctx.fillStyle = `hsla(${star.hue},${star.sat}%,90%,${a})`;
             }
-
+ 
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();
-
+ 
             // glow for bigger stars
             if (star.radius > 1.4) {
                 ctx.beginPath();
@@ -95,24 +94,24 @@ class StarfieldRenderer {
                 ctx.fill();
             }
         });
-
+ 
         // ── spawn ──
         if (timestamp - this.lastShootingStarTime > (Math.random() * 4000 + 3000)) {
             this.spawnShootingStar();
             this.lastShootingStarTime = timestamp;
         }
-
+ 
         // ── shooting stars ──
         this.shootingStars = this.shootingStars.filter(s => s.alpha > 0.02);
-
+ 
         this.shootingStars.forEach(s => {
             s.trail.push({ x: s.x, y: s.y });
             if (s.trail.length > 20) s.trail.shift();
-
+ 
             s.x += s.vx;
             s.y += s.vy;
             s.alpha -= 0.022;
-
+ 
             // trail
             if (s.trail.length > 1) {
                 ctx.beginPath();
@@ -131,7 +130,7 @@ class StarfieldRenderer {
                 ctx.lineWidth = 1.5;
                 ctx.stroke();
             }
-
+ 
             // glow
             const headGrad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 4);
             headGrad.addColorStop(0, `rgba(255,255,255,${s.alpha})`);
@@ -141,16 +140,16 @@ class StarfieldRenderer {
             ctx.arc(s.x, s.y, 4, 0, Math.PI * 2);
             ctx.fill();
         });
-
+ 
         this.animationId = requestAnimationFrame(ts => this.draw(ts));
     }
-
+ 
     start() {
         if (this.isRunning) return;
         this.isRunning = true;
         this.animationId = requestAnimationFrame(ts => this.draw(ts));
     }
-
+ 
     stop() {
         this.isRunning = false;
         if (this.animationId) {
@@ -159,7 +158,7 @@ class StarfieldRenderer {
         }
     }
 }
-
+ 
 class StaticEffectManager {
     constructor(config, element) {
         this.config = config;
@@ -167,17 +166,17 @@ class StaticEffectManager {
         this.lastUpdate = 0;
         this.animationId = null;
         this.isRunning = false;
-
+ 
         this.canvas = document.createElement('canvas');
         this.canvas.width  = this.config.canvasSize;
         this.canvas.height = this.config.canvasSize;
         this.ctx = this.canvas.getContext('2d', { alpha: false, willReadFrequently: false });
         this.imageData = this.ctx.createImageData(this.canvas.width, this.canvas.height);
     }
-
+ 
     generate(timestamp) {
         if (!this.isRunning) return;
-
+ 
         if (timestamp - this.lastUpdate > this.config.staticUpdateInterval) {
             const data = this.imageData.data;
             for (let i = 0; i < data.length; i += 4) {
@@ -189,22 +188,22 @@ class StaticEffectManager {
             this.element.style.backgroundSize = (this.config.canvasSize / 2) + 'px ' + (this.config.canvasSize / 2) + 'px';
             this.lastUpdate = timestamp;
         }
-
+ 
         this.animationId = requestAnimationFrame(ts => this.generate(ts));
     }
-
+ 
     start() {
         if (this.isRunning) return;
         this.isRunning = true;
         this.animationId = requestAnimationFrame(ts => this.generate(ts));
     }
-
+ 
     stop() {
         this.isRunning = false;
         if (this.animationId) { cancelAnimationFrame(this.animationId); this.animationId = null; }
     }
 }
-
+ 
 class PerformanceConfig {
     constructor() {
         this.screenWidth  = window.innerWidth;
@@ -215,7 +214,7 @@ class PerformanceConfig {
         this.isDesktop = this.screenWidth >= 1024;
         this.config = this.getConfig();
     }
-
+ 
     getConfig() {
         if (this.isMobile) {
             return { canvasSize: 80,  staticUpdateInterval: 200 };
@@ -226,20 +225,20 @@ class PerformanceConfig {
         }
     }
 }
-
+ 
 class ResponsiveHandler {
     constructor(onBreakpointChange) {
         this.currentWidth = window.innerWidth;
         this.resizeTimeout = null;
         this.onBreakpointChange = onBreakpointChange;
     }
-
+ 
     getBreakpoint(width) {
         if (width < 768) return 'mobile';
         if (width < 1024) return 'tablet';
         return 'desktop';
     }
-
+ 
     init() {
         let current = this.getBreakpoint(this.currentWidth);
         window.addEventListener('resize', () => {
@@ -256,39 +255,39 @@ class ResponsiveHandler {
         });
     }
 }
-
+ 
 class ProjectCardHandler {
     constructor() {
         this.grid = document.querySelector('.projects-grid');
     }
-
+ 
     init() {
         if (!this.grid) return;
-
+ 
         this.grid.addEventListener('click', e => {
             const card = e.target.closest('.project-card');
             if (!card) return;
-
+ 
             const projectName  = card.dataset.project;
             const downloadPath = card.dataset.download;
-
+ 
             if (e.target.classList.contains('more-btn')) {
                 e.stopPropagation();
                 window.location.href = `projects/${projectName}/index.html`;
                 return;
             }
-
-            if (e.target.classList.contains('download-btn') ||
-                e.target.classList.contains('documentation-btn')) {
+ 
+            if (e.target.classList.contains('github-btn')) {
                 e.stopPropagation();
-                this.downloadFile(downloadPath);
+                window.location.href = `https://github.com/philkluge/${projectName}`;
                 return;
             }
-
+ 
+ 
             window.location.href = `projects/${projectName}/index.html`;
         });
     }
-
+ 
     downloadFile(path) {
         const a = document.createElement('a');
         a.href = path;
@@ -298,23 +297,67 @@ class ProjectCardHandler {
         document.body.removeChild(a);
     }
 }
-
+ 
+class ScreenshotModal {
+    constructor() {
+        this.modal = null;
+        this.createModal();
+        this.bindEvents();
+    }
+ 
+    createModal() {
+        this.modal = document.createElement('div');
+        this.modal.className = 'screenshot-modal';
+        this.modal.innerHTML = `
+            <div class="modal-content">
+                <span class="modal-close" role="button" aria-label="Close">&times;</span>
+                <img class="modal-img" src="" alt="Screenshot">
+            </div>`;
+        document.body.appendChild(this.modal);
+    }
+ 
+    bindEvents() {
+        document.querySelectorAll('.screenshot-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                if (img) this.open(img.src);
+            });
+        });
+ 
+        this.modal.querySelector('.modal-close').addEventListener('click', () => this.close());
+        this.modal.addEventListener('click', e => { if (e.target === this.modal) this.close(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) this.close();
+        });
+    }
+ 
+    open(src) {
+        this.modal.querySelector('.modal-img').src = src;
+        this.modal.classList.add('active');
+    }
+ 
+    close() {
+        this.modal.classList.remove('active');
+    }
+}
+ 
 class App {
     constructor() {
         this.starfield = null;
         this.staticEffect = null;
         this.responsiveHandler = null;
         this.projectCardHandler = null;
+        this.screenshotModal = null;
     }
-
+ 
     init() {
-        // Starfield
-        const canvas = document.getElementById('starsCanvas');
+        // Starfield – funktioniert mit #Canvas (Hauptseite) ODER #starsCanvas (Projektseiten)
+        const canvas = document.getElementById('Canvas') || document.getElementById('starsCanvas');
         if (canvas) {
             this.starfield = new StarfieldRenderer(canvas);
             this.starfield.start();
         }
-
+ 
         // Static noise
         const staticEl = document.getElementById('staticEl');
         if (staticEl) {
@@ -322,30 +365,35 @@ class App {
             this.staticEffect = new StaticEffectManager(perfConfig.config, staticEl);
             this.staticEffect.start();
         }
-
+ 
         // Responsive
         this.responsiveHandler = new ResponsiveHandler((a, b) => {
             console.log(`Breakpoint: ${a} → ${b}`);
         });
         this.responsiveHandler.init();
-
-        // Project cards
+ 
+        // Project cards (nur auf der Hauptseite vorhanden)
         this.projectCardHandler = new ProjectCardHandler();
         this.projectCardHandler.init();
+ 
+        // Screenshot modal (nur auf Projektseiten vorhanden)
+        if (document.querySelector('.screenshot-item')) {
+            this.screenshotModal = new ScreenshotModal();
+        }
     }
-
+ 
     destroy() {
         if (this.starfield)    this.starfield.stop();
         if (this.staticEffect) this.staticEffect.stop();
     }
 }
-
+ 
 let app;
 document.addEventListener('DOMContentLoaded', () => {
     app = new App();
     app.init();
 });
-
+ 
 window.addEventListener('beforeunload', () => {
     if (app) app.destroy();
 });
