@@ -21,46 +21,42 @@ class StarfieldRenderer {
     }
  
     generateStars() {
-        // "Stars" werden hier zu treibenden Partikeln (Staub/Glitzer in der Hitze) umfunktioniert
-        const count = Math.floor((this.canvas.width * this.canvas.height) / 4500);
+        // "Stars" werden hier zu sehr dezenten treibenden Partikeln umfunktioniert
+        const count = Math.floor((this.canvas.width * this.canvas.height) / 9000);
         this.stars = [];
  
         for (let i = 0; i < count; i++) {
             const size = Math.random();
             this.stars.push({
                 x:         Math.random() * this.canvas.width,
-                y:         Math.random() * this.canvas.height * 0.65, // bleiben im "Himmel"
-                radius:    size < 0.6 ? Math.random() * 0.8 + 0.2
-                         : size < 0.9 ? Math.random() * 1.2 + 0.6
-                         :              Math.random() * 2 + 1.2,
-                alpha:     Math.random() * 0.6 + 0.3,
-                twinkleSpeed: Math.random() * 0.02 + 0.003,
+                y:         Math.random() * this.canvas.height,
+                radius:    size < 0.7 ? Math.random() * 0.6 + 0.2
+                         : size < 0.95 ? Math.random() * 0.9 + 0.5
+                         :               Math.random() * 1.3 + 0.8,
+                alpha:     Math.random() * 0.25 + 0.08,
+                twinkleSpeed: Math.random() * 0.012 + 0.002,
                 twinklePhase: Math.random() * Math.PI * 2,
-                // Pink / Orange / Cyan Farbpalette statt weiß/blau/lila
-                hue: Math.random() < 0.4 ? 330   // pink
-                   : Math.random() < 0.7 ? 35    // orange
-                   :                       185,  // cyan
-                sat: Math.floor(Math.random() * 40 + 60),
+                // dezentes Violett, leichter Magenta-Einschlag
+                hue: Math.random() < 0.6 ? 270 : 290,
+                sat: Math.floor(Math.random() * 25 + 25),
             });
         }
     }
  
     spawnShootingStar() {
-        // Statt Sternschnuppen: schnelle Lichtstreifen ("Nightrider")
+        // Sehr seltene, dezente Lichtstreifen
         const startX = -50;
-        const startY = this.canvas.height * (0.2 + Math.random() * 0.4);
-        const speed  = Math.random() * 10 + 10;
-        const length = Math.random() * 150 + 80;
-        const colorPick = Math.random() < 0.5 ? 'pink' : 'cyan';
+        const startY = this.canvas.height * (0.15 + Math.random() * 0.5);
+        const speed  = Math.random() * 6 + 5;
+        const length = Math.random() * 100 + 60;
  
         this.shootingStars.push({
             x: startX, y: startY,
             vx: speed,
             vy: 0,
             length,
-            alpha: 1,
+            alpha: 0.5,
             trail: [],
-            color: colorPick,
         });
     }
  
@@ -70,105 +66,47 @@ class StarfieldRenderer {
         const h = this.canvas.height;
         ctx.clearRect(0, 0, w, h);
  
-        // ── Sonnenuntergangs-Sonne ──
-        const sunCx = w * 0.5;
-        const sunCy = h * 0.62;
-        const sunR  = Math.min(w, h) * 0.22;
-        const sunGrad = ctx.createRadialGradient(sunCx, sunCy, 0, sunCx, sunCy, sunR);
-        sunGrad.addColorStop(0,   'rgba(255, 174, 0, 0.55)');
-        sunGrad.addColorStop(0.5, 'rgba(255, 45, 120, 0.30)');
-        sunGrad.addColorStop(1,   'rgba(255, 45, 120, 0)');
-        ctx.fillStyle = sunGrad;
+        // ── sehr dezenter Lichtschein, kein dominanter Sonnenkörper ──
+        const glowCx = w * 0.5;
+        const glowCy = h * 0.95;
+        const glowR  = Math.min(w, h) * 0.55;
+        const glowGrad = ctx.createRadialGradient(glowCx, glowCy, 0, glowCx, glowCy, glowR);
+        glowGrad.addColorStop(0,   'rgba(176, 61, 214, 0.07)');
+        glowGrad.addColorStop(0.6, 'rgba(109, 92, 224, 0.04)');
+        glowGrad.addColorStop(1,   'rgba(109, 92, 224, 0)');
+        ctx.fillStyle = glowGrad;
         ctx.beginPath();
-        ctx.arc(sunCx, sunCy, sunR, 0, Math.PI * 2);
+        ctx.arc(glowCx, glowCy, glowR, 0, Math.PI * 2);
         ctx.fill();
  
-        // Sonnen-Streifen (klassischer Retro-Synthwave-Look)
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(sunCx, sunCy, sunR * 0.9, 0, Math.PI * 2);
-        ctx.clip();
-        ctx.fillStyle = 'rgba(26,10,31,0.55)';
-        const stripeCount = 7;
-        for (let i = 0; i < stripeCount; i++) {
-            const sh = (sunR * 1.8) / (stripeCount * 2);
-            const sy = sunCy - sunR * 0.9 + i * (sh * 2.4) + sh;
-            ctx.fillRect(sunCx - sunR, sy, sunR * 2, sh);
-        }
-        ctx.restore();
- 
-        // ── treibende Glitzerpartikel ──
+        // ── treibende, kaum sichtbare Partikel ──
         this.stars.forEach(star => {
             star.twinklePhase += star.twinkleSpeed;
             const a = star.alpha * (0.6 + 0.4 * Math.sin(star.twinklePhase));
  
-            ctx.fillStyle = `hsla(${star.hue},${star.sat}%,65%,${a})`;
+            ctx.fillStyle = `hsla(${star.hue},${star.sat}%,75%,${a})`;
  
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();
- 
-            if (star.radius > 1.4) {
-                ctx.beginPath();
-                const grad = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.radius * 4);
-                grad.addColorStop(0, `hsla(${star.hue},${star.sat}%,65%,${a * 0.25})`);
-                grad.addColorStop(1, 'transparent');
-                ctx.fillStyle = grad;
-                ctx.arc(star.x, star.y, star.radius * 4, 0, Math.PI * 2);
-                ctx.fill();
-            }
         });
  
-        // ── perspektivisches Retro-Grid am unteren Bildrand ──
-        this.gridOffset = (this.gridOffset + 0.6) % 40;
-        ctx.save();
-        ctx.strokeStyle = 'rgba(0, 229, 255, 0.25)';
-        ctx.lineWidth = 1;
-        const horizonY = h * 0.62;
-        const vanishX = w * 0.5;
- 
-        // horizontale Linien (näher = weiter auseinander)
-        for (let i = 0; i < 14; i++) {
-            const t = (i * 40 + this.gridOffset) / (14 * 40);
-            const y = horizonY + Math.pow(t, 2.2) * (h - horizonY);
-            const alpha = 0.3 * (1 - t * 0.6);
-            ctx.strokeStyle = `rgba(255, 45, 120, ${alpha})`;
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(w, y);
-            ctx.stroke();
-        }
- 
-        // vertikale Linien Richtung Fluchtpunkt
-        const vCount = 12;
-        for (let i = 0; i <= vCount; i++) {
-            const xBottom = (w / vCount) * i;
-            ctx.strokeStyle = 'rgba(0, 229, 255, 0.18)';
-            ctx.beginPath();
-            ctx.moveTo(vanishX, horizonY);
-            ctx.lineTo(xBottom, h);
-            ctx.stroke();
-        }
-        ctx.restore();
- 
-        // ── spawn ──
-        if (timestamp - this.lastShootingStarTime > (Math.random() * 4000 + 3000)) {
+        // ── spawn (sehr selten) ──
+        if (timestamp - this.lastShootingStarTime > (Math.random() * 9000 + 9000)) {
             this.spawnShootingStar();
             this.lastShootingStarTime = timestamp;
         }
  
-        // ── Lichtstreifen ──
-        this.shootingStars = this.shootingStars.filter(s => s.alpha > 0.02 && s.x < w + 100);
+        // ── dezente Lichtstreifen ──
+        this.shootingStars = this.shootingStars.filter(s => s.alpha > 0.01 && s.x < w + 100);
  
         this.shootingStars.forEach(s => {
             s.trail.push({ x: s.x, y: s.y });
-            if (s.trail.length > 20) s.trail.shift();
+            if (s.trail.length > 16) s.trail.shift();
  
             s.x += s.vx;
             s.y += s.vy;
-            if (s.trail.length > 16) s.alpha -= 0.012;
- 
-            const baseColor = s.color === 'pink' ? '255,45,120' : '0,229,255';
+            if (s.trail.length > 12) s.alpha -= 0.008;
  
             // trail
             if (s.trail.length > 1) {
@@ -182,21 +120,12 @@ class StarfieldRenderer {
                     s.x, s.y
                 );
                 grad.addColorStop(0, 'transparent');
-                grad.addColorStop(0.4, `rgba(${baseColor},${s.alpha * 0.3})`);
-                grad.addColorStop(1, `rgba(255,255,255,${s.alpha})`);
+                grad.addColorStop(0.4, `rgba(176, 61, 214,${s.alpha * 0.2})`);
+                grad.addColorStop(1, `rgba(220, 210, 245,${s.alpha})`);
                 ctx.strokeStyle = grad;
-                ctx.lineWidth = 1.5;
+                ctx.lineWidth = 1;
                 ctx.stroke();
             }
- 
-            // glow
-            const headGrad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 4);
-            headGrad.addColorStop(0, `rgba(255,255,255,${s.alpha})`);
-            headGrad.addColorStop(1, 'transparent');
-            ctx.fillStyle = headGrad;
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, 4, 0, Math.PI * 2);
-            ctx.fill();
         });
  
         this.animationId = requestAnimationFrame(ts => this.draw(ts));
@@ -236,13 +165,13 @@ class StaticEffectManager {
         if (!this.isRunning) return;
  
         if (timestamp - this.lastUpdate > this.config.staticUpdateInterval) {
-            // Hitzeflimmer-Rauschen statt reinem Grau: leicht warmer Ton
+            // Sehr dezentes Rauschen, leicht violett getönt
             const data = this.imageData.data;
             for (let i = 0; i < data.length; i += 4) {
                 const c = Math.random() * 255;
-                data[i]   = c;                         // R
-                data[i+1] = c * 0.85;                   // G (leicht wärmer)
-                data[i+2] = c * 0.9;                     // B
+                data[i]   = c * 0.92;                   // R
+                data[i+1] = c * 0.85;                   // G
+                data[i+2] = c;                            // B (leicht kühler/violetter)
                 data[i+3] = 255;
             }
             this.ctx.putImageData(this.imageData, 0, 0);

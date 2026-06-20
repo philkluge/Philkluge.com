@@ -15,8 +15,24 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/Themes/Artemis II/index.css">
-        <script src="/Themes/Artemis II/index.js"></script>
+        <script>
+            window.THEMES = 
+            [
+                { id: "artemis-ii", name: "Artemis II", folder: "Artemis II" },
+                { id: "gta-vi",      name: "GTA VI",      folder: "GTA VI" }
+            ];
+
+            window.DEFAULT_THEME_ID = "artemis-ii";
+            (function () 
+            {
+                var theme = window.THEMES.find(function (t) { return t.id === localStorage.getItem("selectedTheme"); })
+                    || window.THEMES.find(function (t) { return t.id === window.DEFAULT_THEME_ID; });
+                window.ACTIVE_THEME = theme;
+            
+                document.write('<link rel="stylesheet" href="/Themes/' + encodeURI(theme.folder) + '/index.css">');
+                document.write('<script src="/Themes/' + encodeURI(theme.folder) + '/index.js"><' + '/script>');
+            })();
+        </script>
     </head>
     <body>
         <!-- Effects -->

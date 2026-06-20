@@ -15,10 +15,88 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
         
-        <link rel="stylesheet" href="/Themes/Artemis II/index.css">
-        <script src="/Themes/Artemis II/index.js"></script>
+        <script>
+            window.THEMES = 
+            [
+                { id: "artemis-ii", name: "Artemis II", folder: "Artemis II" },
+                { id: "gta-vi",      name: "GTA VI",      folder: "GTA VI" }
+            ];
+
+            (function () 
+            {
+                var theme = window.THEMES.find(function (t) 
+                { 
+                    return t.id === localStorage.getItem("selectedTheme"); 
+                }) || window.THEMES.find(function (t) { return t.id === "artemis-ii"; })
+
+                window.ACTIVE_THEME = theme;
+                document.write('<link rel="stylesheet" href="/Themes/' + encodeURI(theme.folder) + '/index.css">');
+                document.write('<script src="/Themes/' + encodeURI(theme.folder) + '/index.js"><' + '/script>');
+            })();
+        </script>
+        <style>
+            #theme-switcher {
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                z-index: 9999;
+                font-family: 'Share Tech Mono', monospace;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            #theme-switcher label {
+                color: #ffffff;
+                font-size: 0.85rem;
+                letter-spacing: 0.05em;
+                user-select: none;
+            }
+            #theme-switcher select {
+                background: rgba(0, 0, 0, 0);
+                color: #A000ff;
+                border: 0px #000000;
+                padding: 6px 10px;
+                font-family: inherit;
+                font-size: 0.85rem;
+                cursor: pointer;
+                backdrop-filter: blur(4px);
+                background-color: #000000
+            }
+
+            #theme-switcher select:hover,
+            #theme-switcher select:focus {
+                border-color: rgba(0, 0, 0, 0);
+                outline: none;
+            }
+        </style>
     </head>
     <body>
+        <div id="theme-switcher">
+            <label for="theme-select">Themes:</label>
+            <select id="theme-select" aria-label="Theme auswählen"></select>
+        </div>
+
+        <script>
+            (function () {
+                var select = document.getElementById("theme-select");
+
+                window.THEMES.forEach(function (t) {
+                    var opt = document.createElement("option");
+                    opt.value = t.id;
+                    opt.textContent = t.name;
+                    if (window.ACTIVE_THEME && t.id === window.ACTIVE_THEME.id) {
+                        opt.selected = true;
+                    }
+                    select.appendChild(opt);
+                });
+
+                select.addEventListener("change", function () {
+                    localStorage.setItem("selectedTheme", select.value);
+                    location.reload();
+                });
+            })();
+        </script>
+
         <!-- Effects -->
         <canvas id="Canvas" aria-hidden="true"></canvas>
         <div class="Background" aria-hidden="true"></div>
