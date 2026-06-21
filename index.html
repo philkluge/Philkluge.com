@@ -1,4 +1,3 @@
-<!-- V.1.0 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -72,32 +71,39 @@
     </head>
     <body>
         <div id="theme-switcher">
-            <label for="theme-select">Themes:</label>
             <select id="theme-select" aria-label="Theme auswählen"></select>
+            <select id="lang-select" aria-label="Language / Sprache">
+                <option value="en">🇬🇧 EN</option>
+                <option value="de">🇩🇪 DE</option>
+                <option value="es">🇪🇸 ES</option>
+            </select>
         </div>
 
         <script>
-            (function () {
+            (function () 
+            {
                 var select = document.getElementById("theme-select");
 
-                window.THEMES.forEach(function (t) {
+                window.THEMES.forEach(function (t) 
+                {
                     var opt = document.createElement("option");
                     opt.value = t.id;
                     opt.textContent = t.name;
-                    if (window.ACTIVE_THEME && t.id === window.ACTIVE_THEME.id) {
+                    if (window.ACTIVE_THEME && t.id === window.ACTIVE_THEME.id) 
+                    {
                         opt.selected = true;
                     }
                     select.appendChild(opt);
                 });
 
-                select.addEventListener("change", function () {
+                select.addEventListener("change", function () 
+                {
                     localStorage.setItem("selectedTheme", select.value);
                     location.reload();
                 });
             })();
         </script>
 
-        <!-- Effects -->
         <canvas id="Canvas" aria-hidden="true"></canvas>
         <div class="Background" aria-hidden="true"></div>
         <div class="scanlines" aria-hidden="true"></div>
@@ -107,31 +113,29 @@
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
                 <h1 id="hero-title" class="title">PHIL KLUGE</h1>
-                <p class="subtitle">Software Developer</p>
+                <p class="subtitle" data-i18n="hero-subtitle">Software Developer</p>
                 <div class="title-line"></div>
                 <button 
                     class="scroll-indicator" 
                     onclick="document.querySelector('.projects').scrollIntoView({behavior: 'smooth'})"
                     aria-label="Scroll to projects section">
-                    <span>▼ PROJECTS ▼</span>
+                    <span data-i18n="hero-scroll">▼ PROJECTS ▼</span>
                 </button>
             </div>
         </section>
 
-        <!-- Projects -->
         <section class="projects" aria-labelledby="projects-title">
-            <h2 id="projects-title" class="section-title">PROJECTS</h2>
+            <h2 id="projects-title" class="section-title" data-i18n="projects-title">PROJECTS</h2>
             <div class="projects-grid" role="list">
                 
                 <article class="project-card" data-project="fuel-tracker-II" role="listitem">
                     <div class="card-glow"></div>
                     <div class="card-inner">
                         <h3>Fuel Tracker II</h3>
-                        <p>An Android app that shows all of your car's stats.</p>
+                        <p data-i18n="proj-fuel-desc">An Android app that shows all of your car's stats.</p>
                         <div class="card-footer">
-                            <button class="tech-tag more-btn" aria-label="More information about Fuel Tracker">More</button>
-                            <!--<button class="tech-tag github-btn">GitHub</button>-->
-                        </div>
+                            <button class="tech-tag more-btn" aria-label="More information about Fuel Tracker" data-i18n="btn-more">More</button>
+                            </div>
                     </div>
                 </article>
 
@@ -139,10 +143,10 @@
                     <div class="card-glow"></div>
                     <div class="card-inner">
                         <h3>If Games</h3>
-                        <p>A Game launcher that puts all of ur games into one app.</p>
+                        <p data-i18n="proj-ifgames-desc">A Game launcher that puts all of ur games into one app.</p>
                         <div class="card-footer">
-                            <button class="tech-tag more-btn" aria-label="More information about If Games">More</button>
-                            <button class="tech-tag github-btn">GitHub</button>
+                            <button class="tech-tag more-btn" aria-label="More information about If Games" data-i18n="btn-more">More</button>
+                            <button class="tech-tag github-btn" data-i18n="btn-github">GitHub</button>
                         </div>
                     </div>
                 </article>
@@ -151,11 +155,10 @@
                     <div class="card-glow"></div>
                     <div class="card-inner">
                         <h3>MKDD Ultimate</h3>
-                        <p>A mod for Mario Kart Double Dash!!</p>
+                        <p data-i18n="proj-mkdd-desc">A mod for Mario Kart Double Dash!!</p>
                         <div class="card-footer">
-                            <button class="tech-tag more-btn" aria-label="More information about MKDD Ultimate">More</button>
-                            <!--<button class="tech-tag github-btn">GitHub</button>-->
-                        </div>
+                            <button class="tech-tag more-btn" aria-label="More information about MKDD Ultimate" data-i18n="btn-more">More</button>
+                            </div>
                     </div>
                 </article>
 
@@ -163,10 +166,10 @@
                     <div class="card-glow"></div>
                     <div class="card-inner">
                         <h3>CFC</h3>
-                        <p>A Tool that can be used to make data for trotec laser cutters.</p>
+                        <p data-i18n="proj-cfc-desc">A Tool that can be used to make data for trotec laser cutters.</p>
                         <div class="card-footer">
-                            <button class="tech-tag more-btn" aria-label="More information about CFC">More</button>
-                            <button class="tech-tag github-btn">GitHub</button>
+                            <button class="tech-tag more-btn" aria-label="More information about CFC" data-i18n="btn-more">More</button>
+                            <button class="tech-tag github-btn" data-i18n="btn-github">GitHub</button>
                         </div>
                     </div>
                 </article>
@@ -175,10 +178,10 @@
                     <div class="card-glow"></div>
                     <div class="card-inner">
                         <h3>ETI</h3>
-                        <p>Replaces Edge with the dead Internet Explorer.</p>
+                        <p data-i18n="proj-eti-desc">Replaces Edge with the dead Internet Explorer.</p>
                         <div class="card-footer">
-                            <button class="tech-tag more-btn" aria-label="More information about ETI">More</button>
-                            <button class="tech-tag github-btn">GitHub</button>
+                            <button class="tech-tag more-btn" aria-label="More information about ETI" data-i18n="btn-more">More</button>
+                            <button class="tech-tag github-btn" data-i18n="btn-github">GitHub</button>
                         </div>
                     </div>
                 </article>
@@ -188,9 +191,52 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-line"></div>
+                <div class="footer-links">
+                    <a href="/Themes/SRC/impressum.html" data-i18n="footer-impressum">Impressum</a>
+                    <p class="copyright"></p>
+                </div>
                 <p class="copyright">©2026 Phil Kluge</p>
-                <p class="rights">All Rights Reserved</p>
+                <p class="rights" data-i18n="footer-rights">All Rights Reserved</p>
             </div>
         </footer>
+
+        <script>
+            (async function() 
+            {
+                const langSelect = document.getElementById('lang-select');
+                let currentLang = localStorage.getItem('selectedLang') || 'en';
+                langSelect.value = currentLang;
+                document.documentElement.lang = currentLang;
+
+                let translations = {};
+                const response = await fetch('/Themes/SRC/translations.json');
+                translations = await response.json();
+
+                function applyTranslations(lang) 
+                {
+                    if (!translations[lang]) return;
+                    
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => 
+                    {
+                        const key = el.getAttribute('data-i18n');
+                        if (translations[lang][key]) 
+                        {
+                            el.textContent = translations[lang][key];
+                        }
+                    });
+                }
+
+                applyTranslations(currentLang);
+
+                langSelect.addEventListener('change', function() 
+                {
+                    currentLang = this.value;
+                    localStorage.setItem('selectedLang', currentLang);
+                    document.documentElement.lang = currentLang;
+                    applyTranslations(currentLang);
+                });
+            })();
+        </script>
     </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Impressum | Phil Kluge</title>
+        <style>
+            body {
+                background-color: #0a0a0a;
+                color: #ddd;
+                font-family: 'Share Tech Mono', monospace;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+            .legal-card {
+                background: #121212;
+                border: 1px solid #333;
+                padding: 40px;
+                border-radius: 12px;
+                max-width: 600px;
+                width: 90%;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+            h1 {
+                color: #fff;
+                font-family: 'Orbitron', sans-serif;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            .legal-block { margin-bottom: 25px; }
+            h2 {
+                color: #888;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+            a { color: #00d4ff; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <section class="legal-section" aria-labelledby="impressum-title">
+            <div class="legal-card">
+                <nav class="back-nav">
+                    <a href="../../index.html" class="back-btn" data-i18n="proj-MKDD-btn-back" aria-label="Back to main page">← BACK TO MAIN</a>
+                </nav>
+                <h1 id="impressum-title" data-i18n="imp-title">Impressum</h1>
+                
+                <div class="legal-block">
+                    <h2 data-i18n="imp-owner">Inhaber</h2>
+                    <p>Phil Kluge<br>
+                    Giesenfeldstraße<br>
+                    47239 Duisburg</p>
+                </div>
+
+                <div class="legal-block">
+                    <h2 data-i18n="imp-contact">Kontakt</h2>
+                    <p>E-Mail: <a href="mailto:contact@philkluge.com">contact@philkluge.com</a></p>
+                </div>
+            </div>
+        </section>
+        <script>
+            (async function() 
+            {
+                const currentLang = localStorage.getItem('selectedLang') || 'en';
+                document.documentElement.lang = currentLang;
+
+                const response = await fetch('/Themes/SRC/translations.json');
+                const translations = await response.json();
+                    
+                if (translations[currentLang]) 
+                {
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => 
+                    {
+                        const key = el.getAttribute('data-i18n');
+                            if (translations[currentLang][key]) 
+                            {
+                                el.textContent = translations[currentLang][key];
+                            }
+                        });
+                    }
+            })();
+        </script>
+    </body>
+</html>

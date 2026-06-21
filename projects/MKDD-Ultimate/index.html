@@ -43,7 +43,7 @@
         <div class="static" id="staticEl" aria-hidden="true"></div>
 
         <nav class="back-nav">
-            <a href="../../index.html" class="back-btn" aria-label="Back to main page">← BACK TO MAIN</a>
+            <a href="../../index.html" class="back-btn" data-i18n="proj-MKDD-btn-back" aria-label="Back to main page">← BACK TO MAIN</a>
         </nav>
 
         <section class="project-header" aria-labelledby="project-title">
@@ -51,10 +51,10 @@
                 <div class="logo-container">
                     <img src="logo.png" alt="If Games Logo" class="project-logo">
                 </div>
-                <h1 id="project-title" class="project-title">MKDD Ultimate</h1>
-                <p class="project-tagline">Mario kart: double dash!!</p>
+                <h1 id="project-title" class="project-title" data-i18n="proj-MKDD-title">MKDD Ultimate</h1>
+                <p class="project-tagline" data-i18n="proj-MKDD-tagline">Game Mod</p>
                 <div class="header-divider"></div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-MKDD-description">
                     is a comprehensive Mario Kart Double Dash!! mod featuring new & retro tracks,
                     an expanded characters roster, kart & character skins, and more.
                 </p>
@@ -68,54 +68,89 @@
             <div class="screenshots-grid">
                 <div class="screenshot-item">
                     <img src="screenshots/screenshot1.png" alt="Title screen">
-                    <div class="screenshot-overlay"><span>Title screen</span></div>
+                    <div class="screenshot-overlay" data-i18n="proj-MKDD-titlescreen"><span>Title screen</span></div>
                 </div>
             </div>
         </section>
 
         <section class="features-section" aria-labelledby="features-title">
             <h2 id="features-title" class="section-title">
-                <span class="section-prefix"></span>FEATURES
+                <span class="section-prefix"></span data-i18n="proj-MKDD-features">FEATURES
             </h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">☐☐<br>☐</span>
-                    <h3>Characters roster</h3>
-                    <p>10 additional playable characters in the characters roster</p>
+                    <h3 data-i18n="proj-MKDD-featur1-h3">Characters roster</h3>
+                    <p data-i18n="proj-MKDD-featur1-h3-text">10 additional playable characters in the characters roster</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🟥🟦<br>🟩</span>
-                    <h3>Characters skins</h3>
-                    <p>Each character gets 3 additional skins</p>
+                    <h3 data-i18n="proj-MKDD-featur2-h3">Characters skins</h3>
+                    <p data-i18n="proj-MKDD-featur2-h3-text">Each character gets 3 additional skins</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🌃🌆<br>🌇</span>
-                    <h3>Multi version Maps</h3>
-                    <p>Some tracks have different versions. The game randomly selects which version to play</p>
+                    <h3 data-i18n="proj-MKDD-featur3-h3">Multi version Maps</h3>
+                    <p data-i18n="proj-MKDD-featur3-h3-text">Some tracks have different versions. The game randomly selects which version to play</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">░░ ▒▒<br>▓▓</span>
-                    <h3>Textures</h3>
-                    <p>New & higher-resolution textures</p>
+                    <h3 data-i18n="proj-MKDD-featur4-h3">Textures</h3>
+                    <p data-i18n="proj-MKDD-featur4-h3-text">New & higher-resolution textures</p>
                 </div>
             </div>
         </section>
 
         <section class="requirements-section" aria-labelledby="requirements-title">
-            <h2 id="requirements-title" class="section-title">
+            <h2 id="requirements-title" class="section-title" data-i18n="proj-MKDD-req">
                 <span class="section-prefix"></span>REQUIREMENTS
             </h2>
             <div class="requirements-container">
                 <div class="requirements-col">
-                    <h3>!This mod doesn't work on original hardware!</h3>
+                    <h3 data-i18n="proj-MKDD-req-h3">!This mod doesn't work on original hardware!</h3>
                     <ul>
-                        <li><strong>Dolphin emulator:</strong> Newes version</li>
-                        <li><strong>Config -> Advanced:</strong> ☑ Enable Emulated Memory Size Override</li>
-                        <li><strong>Config -> Advanced:</strong> 64 MB (MEM1)</li>
-                        <li><strong>Config -> Advanced:</strong> 128 MB (MEM2)</li>
+                        <li><strong data-i18n="proj-MKDD-rec-1">Dolphin emulator:</strong> Newes version</li>
+                        <li><strong data-i18n="proj-MKDD-rec-2">Config -> Advanced:</strong> ☑ Enable Emulated Memory Size Override</li>
+                        <li><strong data-i18n="proj-MKDD-rec-3">Config -> Advanced:</strong> 64 MB (MEM1)</li>
+                        <li><strong data-i18n="proj-MKDD-rec-4">Config -> Advanced:</strong> 128 MB (MEM2)</li>
                     </ul>
                 </div>
             </div>
         </section>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-line"></div>
+                <div class="footer-links">
+                    <a href="/Themes/SRC/impressum.html" data-i18n="footer-impressum">Impressum</a>
+                    <p class="copyright"></p>
+                </div>
+                <p class="copyright">©2026 Phil Kluge</p>
+                <p class="rights" data-i18n="footer-rights">All Rights Reserved</p>
+            </div>
+        </footer>
+        <script>
+            (async function() 
+            {
+                const currentLang = localStorage.getItem('selectedLang') || 'en';
+                document.documentElement.lang = currentLang;
+
+                const response = await fetch('/Themes/SRC/translations.json');
+                const translations = await response.json();
+                    
+                if (translations[currentLang]) 
+                {
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => 
+                    {
+                        const key = el.getAttribute('data-i18n');
+                            if (translations[currentLang][key]) 
+                            {
+                                el.textContent = translations[currentLang][key];
+                            }
+                        });
+                    }
+            })();
+        </script>
+
     </body>
 </html>
