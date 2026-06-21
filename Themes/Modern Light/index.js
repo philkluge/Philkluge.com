@@ -1,4 +1,4 @@
-//V.1.0 Modern Dark
+// V.1.0 Modern Light
 class StarfieldRenderer {
     constructor(canvas) {
         this.canvas = canvas;
@@ -27,7 +27,7 @@ class StarfieldRenderer {
                 x:      Math.random() * this.canvas.width,
                 y:      Math.random() * this.canvas.height,
                 radius: Math.random() * 0.9 + 0.4,
-                alpha:  Math.random() * 0.25 + 0.12,
+                alpha:  Math.random() * 0.14 + 0.06,
                 vy:     Math.random() * 0.01 + 0.004, // near-imperceptible drift
             });
         }
@@ -41,7 +41,7 @@ class StarfieldRenderer {
             star.y += star.vy;
             if (star.y > this.canvas.height) star.y = 0;
 
-            ctx.fillStyle = `rgba(214, 217, 221, ${star.alpha})`;
+            ctx.fillStyle = `rgba(42, 44, 48, ${star.alpha})`;
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();

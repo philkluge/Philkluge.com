@@ -1,22 +1,22 @@
-/*V.1.0 Modern Dark*/
+/* V.1.0 Modern Light */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg:           #16181c;
-    --bg-card:      #1c1f24;
-    --bg-card2:     #20242a;
-    --accent:       #8fa3b3;
-    --accent-dim:   #5d6e7a;
-    --accent-glow:  #aebecb;
-    --accent-dark:  #3d4750;
-    --blue:         #8fa3b3;
-    --blue-dim:     #5d6e7a;
-    --blue-glow:    #aebecb;
-    --cyan:         #8fa3b3;
-    --text:         #d6d9dd;
-    --text-dim:     #888d94;
-    --border:       rgba(255, 255, 255, 0.07);
-    --border-bright:rgba(255, 255, 255, 0.16);
+    --bg:           #f2f0eb;
+    --bg-card:      #fcfbf9;
+    --bg-card2:     #ece9e2;
+    --accent:       #5d7282;
+    --accent-dim:   #46586a;
+    --accent-glow:  #3d4f5e;
+    --accent-dark:  #cdd6dc;
+    --blue:         #5d7282;
+    --blue-dim:     #46586a;
+    --blue-glow:    #3d4f5e;
+    --cyan:         #5d7282;
+    --text:         #2a2c30;
+    --text-dim:     #6c6f76;
+    --border:       rgba(20, 20, 18, 0.09);
+    --border-bright:rgba(20, 20, 18, 0.22);
     --font-display: 'IBM Plex Sans', sans-serif;
     --font-mono:    'IBM Plex Mono', monospace;
 }
@@ -53,8 +53,8 @@ body {
     z-index: 1;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(143, 163, 179, 0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(143, 163, 179, 0.04) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(93, 114, 130, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(93, 114, 130, 0.04) 0%, transparent 70%);
 }
 
 .static {
@@ -71,7 +71,7 @@ body {
     width: 100%; height: 100%;
     pointer-events: none;
     z-index: 9;
-    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.06) 100%);
 }
 
 /* ── Hero (Hauptseite) ── */
@@ -104,7 +104,7 @@ body {
     font-family: var(--font-display);
     font-size: 4.2rem;
     font-weight: 700;
-    color: #eef0f2;
+    color: #1c1e22;
     letter-spacing: -0.01em;
     margin-bottom: 1rem;
     opacity: 0;
@@ -150,7 +150,7 @@ body {
 
 .scroll-indicator:hover,
 .scroll-indicator:focus {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.03);
     border-color: var(--border-bright);
     color: var(--text);
     outline: none;
@@ -383,7 +383,7 @@ section {
     font-family: var(--font-display);
     font-size: 2.8rem;
     font-weight: 700;
-    color: #eef0f2;
+    color: #1c1e22;
     letter-spacing: -0.01em;
     margin-bottom: 10px;
 }
@@ -511,7 +511,7 @@ section {
 }
 
 .download-btn:hover {
-    background: #262b32;
+    background: #e3e0d8;
     border-color: var(--border-bright);
 }
 
@@ -655,7 +655,7 @@ section {
     position: fixed;
     z-index: 1000;
     inset: 0;
-    background: rgba(10, 11, 13, 0.92);
+    background: rgba(40, 38, 32, 0.85);
     align-items: center;
     justify-content: center;
 }
