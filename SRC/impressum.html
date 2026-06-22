@@ -40,6 +40,24 @@
             }
             a { color: #00d4ff; text-decoration: none; }
             a:hover { text-decoration: underline; }
+
+            @media (max-width: 600px) 
+            {
+                .legal-card 
+                {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 12px;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    overflow-y: auto;
+                }
+                body 
+                {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
         </style>
     </head>
     <body>
@@ -69,7 +87,7 @@
                 const currentLang = localStorage.getItem('selectedLang') || 'en';
                 document.documentElement.lang = currentLang;
 
-                const response = await fetch('/Themes/SRC/translations.json');
+                const response = await fetch('/SRC/translations.json');
                 const translations = await response.json();
                     
                 if (translations[currentLang]) 

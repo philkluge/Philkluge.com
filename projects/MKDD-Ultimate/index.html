@@ -10,7 +10,7 @@
 
         <title>MKDD-Ultimate</title>
 
-        <link rel="icon" type="image/png" href="/Themes/SRC/PK Logo.png">
+        <link rel="icon" type="image/png" href="/SRC/PK Logo.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -123,7 +123,7 @@
             <div class="footer-content">
                 <div class="footer-line"></div>
                 <div class="footer-links">
-                    <a href="/Themes/SRC/impressum.html" data-i18n="footer-impressum">Impressum</a>
+                    <a href="/SRC/impressum.html" data-i18n="footer-impressum">Impressum</a>
                     <p class="copyright"></p>
                 </div>
                 <p class="copyright">©2026 Phil Kluge</p>
@@ -136,7 +136,7 @@
                 const currentLang = localStorage.getItem('selectedLang') || 'en';
                 document.documentElement.lang = currentLang;
 
-                const response = await fetch('/Themes/SRC/translations.json');
+                const response = await fetch('/SRC/translations.json');
                 const translations = await response.json();
                     
                 if (translations[currentLang]) 
