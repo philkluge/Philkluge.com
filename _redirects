@@ -1,9 +1,7 @@
 /impressum          /SRC/impressum.html                     200
 
-/cfc                /projects/cfc/index.html                200
-/eti                /projects/eti/index.html                200
+/cfc                /projects/cfc/index                     200
+/eti                /projects/eti/                          200
 /fuel-tracker-ii    /projects/fuel-tracker-II/index.html    200
 /if-games           /projects/if-games/index.html           200
 /MKDD-Ultimate      /projects/MKDD-Ultimate/index.html      200
-
-/*                  /SRC/404.html                           404
