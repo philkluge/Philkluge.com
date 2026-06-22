@@ -33,6 +33,12 @@
     "proj-MKDD-rec-3": "Config -> Advanced: 64 MB (MEM1)",
     "proj-MKDD-rec-4": "Config -> Advanced: 128 MB (MEM2)",
 
+    "err-btn-back": "← BACK TO MAIN",
+    "err-404-subtitle": "Page Not Found",
+    "err-404-text": "The requested URL was not found on this server. It might have been moved or deleted.",
+    "err-410-subtitle": "Gone",
+    "err-410-text": "The requested resource is no longer available on this server and has been permanently removed.",
+
     "imp-title": "Legal Notice",
     "imp-owner": "Owner",
     "imp-contact": "Contact"
@@ -71,6 +77,12 @@
     "proj-MKDD-rec-3": "Config -> Advanced: 64 MB (MEM1)",
     "proj-MKDD-rec-4": "Config -> Advanced: 128 MB (MEM2)",
 
+    "err-btn-back": "← ZURÜCK ZUR HAUPTSEITE",
+    "err-404-subtitle": "Seite nicht gefunden",
+    "err-404-text": "Die angeforderte URL wurde auf diesem Server nicht gefunden. Sie wurde möglicherweise verschoben oder gelöscht.",
+    "err-410-subtitle": "Dauerhaft entfernt",
+    "err-410-text": "Die angeforderte Ressource ist nicht mehr verfügbar und wurde permanent vom Server entfernt.",
+
     "imp-title": "Impressum",
     "imp-owner": "Inhaber",
     "imp-contact": "Kontakt"
@@ -108,6 +120,12 @@
     "proj-MKDD-rec-2": "Config -> Advanced: ☑ Enable Emulated Memory Size Override",
     "proj-MKDD-rec-3": "Config -> Advanced: 64 MB (MEM1)",
     "proj-MKDD-rec-4": "Config -> Advanced: 128 MB (MEM2)",
+
+    "err-btn-back": "← VOLVER AL INICIO",
+    "err-404-subtitle": "Página no encontrada",
+    "err-404-text": "La URL solicitada no se encontró en este servidor. Es posible que haya sido movida o eliminada.",
+    "err-410-subtitle": "Eliminado permanentemente",
+    "err-410-text": "El recurso solicitado ya no está disponible en este servidor y ha sido eliminado de forma permanente.",
 
     "imp-title": "Aviso Legal",
     "imp-owner": "Propietario",
