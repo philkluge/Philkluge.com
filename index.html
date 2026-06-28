@@ -17,10 +17,11 @@
         <script>
             window.THEMES = 
             [
-                { id: "artemis-ii", name: "Artemis II", folder: "Artemis II" },
-                { id: "gta-vi",      name: "GTA VI",      folder: "GTA VI" },
-                { id: "modern-dark",      name: "Modern Dark",      folder: "Modern Dark" },
-                { id: "modern-light",      name: "Modern Light",      folder: "Modern Light" }
+                { id: "artemis-ii",         name: "Artemis II",         folder: "Artemis II" },
+                { id: "gta-vi",             name: "GTA VI",             folder: "GTA VI" },
+                { id: "PotC",               name: "Pirates",            folder: "PotC" },
+                { id: "modern-dark",        name: "Modern Dark",        folder: "Modern Dark" },
+                { id: "modern-light",       name: "Modern Light",       folder: "Modern Light" }
             ];
 
             (function () 
@@ -36,7 +37,8 @@
             })();
         </script>
         <style>
-            #theme-switcher {
+            #theme-switcher 
+            {
                 position: fixed;
                 top: 16px;
                 right: 16px;
@@ -46,13 +48,15 @@
                 align-items: center;
                 gap: 8px;
             }
-            #theme-switcher label {
+            #theme-switcher label 
+            {
                 color: #ffffff;
                 font-size: 0.85rem;
                 letter-spacing: 0.05em;
                 user-select: none;
             }
-            #theme-switcher select {
+            #theme-switcher select 
+            {
                 background: rgba(0, 0, 0, 0);
                 color: #ffffff;
                 border: 0px #000000;
@@ -61,15 +65,18 @@
                 font-size: 0.85rem;
                 cursor: pointer;
                 backdrop-filter: blur(4px);
-                background-color: #000000
+                background-color: #000000;
+                width: fit-content;
+                min-width: 0;
             }
 
             #theme-switcher select:hover,
-            #theme-switcher select:focus {
+            #theme-switcher select:focus 
+            {
                 border-color: rgba(0, 0, 0, 0);
                 outline: none;
             }
-        </style>
+    </style>
     </head>
     <body>
         <div id="theme-switcher">
