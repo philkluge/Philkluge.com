@@ -1,4 +1,6 @@
-/impressum          /SRC/index/                   200
+/impressum          /SRC/imprint                  200
+/privacy            /SRC/privacy                  200
+/dsgvo              /SRC/privacy                  200
 /tfc                /projects/rfc/                200
 /eti                /projects/eti/                200
 /fuel-tracker-ii    /projects/fuel-tracker-II/    200

@@ -66,6 +66,11 @@
                 <nav class="back-nav">
                     <a href="../../index.html" class="back-btn" data-i18n="proj-MKDD-btn-back" aria-label="Back to main page">← BACK TO MAIN</a>
                 </nav>
+                 <select id="lang-select" aria-label="Language / Sprache">
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>//TODO: Add language selection
                 <h1 id="impressum-title" data-i18n="imp-title">Impressum</h1>
                 
                 <div class="legal-block">
@@ -81,27 +86,46 @@
                 </div>
             </div>
         </section>
+
         <script>
-            (async function() 
+            (async function()
             {
-                const currentLang = localStorage.getItem('selectedLang') || 'en';
+                const langSelect = document.getElementById('lang-select');
+                let currentLang = localStorage.getItem('selectedLang') || 'en';
+
+                if (langSelect) {
+                    langSelect.value = currentLang;
+                }
                 document.documentElement.lang = currentLang;
 
-                const response = await fetch('/SRC/translations.json');
-                const translations = await response.json();
-                    
-                if (translations[currentLang]) 
-                {
-                    const elements = document.querySelectorAll('[data-i18n]');
-                    elements.forEach(el => 
-                    {
-                        const key = el.getAttribute('data-i18n');
-                            if (translations[currentLang][key]) 
-                            {
-                                el.textContent = translations[currentLang][key];
-                            }
-                        });
+                async function applyTranslations(lang) {
+                    try {
+                        const response = await fetch('/SRC/translations.json');
+                        const translations = await response.json();
+
+                        if (translations[lang]) {
+                            const elements = document.querySelectorAll('[data-i18n]');
+                            elements.forEach(el => {
+                                const key = el.getAttribute('data-i18n');
+                                if (translations[lang][key]) {
+                                    el.textContent = translations[lang][key];
+                                }
+                            });
+                        }
+                    } catch (error) {
+                        console.error("Failed to load translations:", error);
                     }
+                }
+                await applyTranslations(currentLang);
+
+                if (langSelect) {
+                    langSelect.addEventListener('change', async (e) => {
+                        const selectedLang = e.target.value;
+                        localStorage.setItem('selectedLang', selectedLang);
+                        document.documentElement.lang = selectedLang;
+                        await applyTranslations(selectedLang);
+                    });
+                }
             })();
         </script>
     </body>
