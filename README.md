@@ -3,5 +3,5 @@
   <br />
   <strong>My Personal portfolio website</strong>
   <br /><br />
-  <a href="DEINE_URL_HIER">Go to philkluge.com</a>
+  <a href="philkluge.com">Go to philkluge.com</a>
 </p>
