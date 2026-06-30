@@ -11,6 +11,10 @@
     "btn-more": "More",
     "btn-github": "GitHub",
     "footer-rights": "All Rights Reserved",
+    "cookie-title": "Privacy / Local Storage",
+    "cookie-text": "This site stores your selected theme and language locally in your browser (localStorage) so your preferences are kept on your next visit. No tracking, no third parties, no transfer to a server.",
+    "cookie-accept": "Accept",
+    "cookie-decline": "Decline",
     
     "proj-MKDD-btn-back": "← BACK TO MAIN",
     "proj-MKDD-title": "MKDD Ultimate",
@@ -55,6 +59,10 @@
     "btn-more": "Mehr",
     "btn-github": "GitHub",
     "footer-rights": "Alle Rechte vorbehalten",
+    "cookie-title": "Datenschutz / Local Storage",
+    "cookie-text": "Diese Seite speichert dein ausgewähltes Theme und deine Sprache lokal in deinem Browser (localStorage), damit deine Einstellungen beim nächsten Besuch erhalten bleiben. Kein Tracking, keine Dritten, keine Übertragung an einen Server.",
+    "cookie-accept": "Akzeptieren",
+    "cookie-decline": "Ablehnen",
     
     "proj-MKDD-btn-back": "← ZURÜCK ZUR HAUPTSEITE",
     "proj-MKDD-title": "MKDD Ultimate",
@@ -99,6 +107,10 @@
     "btn-more": "Más",
     "btn-github": "GitHub",
     "footer-rights": "Todos los derechos reservados",
+    "cookie-title": "Privacidad / Almacenamiento local",
+    "cookie-text": "Este sitio guarda el tema y el idioma que elijas localmente en tu navegador (localStorage) para conservar tus preferencias en tu próxima visita. Sin rastreo, sin terceros, sin envío a ningún servidor.",
+    "cookie-accept": "Aceptar",
+    "cookie-decline": "Rechazar",
     
     "proj-MKDD-btn-back": "← VOLVER AL INICIO",
     "proj-MKDD-title": "MKDD Ultimate",
