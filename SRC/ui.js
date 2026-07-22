@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function ()
 {
-    // --- Theme-Switcher Dropdown befüllen ---
     (function ()
     {
         var select = document.getElementById("theme-select");
-        if (!select) return; // Element existiert auf dieser Seite nicht (z.B. Unterseiten)
+        if (!select) return; 
 
         window.THEMES.forEach(function (t)
         {
@@ -28,17 +27,15 @@ document.addEventListener('DOMContentLoaded', function ()
         });
     })();
 
-    // --- Footer laden ---
     fetch('/SRC/footer.html')
         .then(r => r.text())
         .then(h => document.getElementById('footer-placeholder').innerHTML = h);
 
-    // --- Sprache / i18n ---
     (async function ()
     {
         const langSelect = document.getElementById('lang-select');
         let currentLang = localStorage.getItem('selectedLang') || 'en';
-        langSelect.value = currentLang;
+        if (langSelect) langSelect.value = currentLang;
         document.documentElement.lang = currentLang;
 
         let translations = {};
@@ -60,25 +57,25 @@ document.addEventListener('DOMContentLoaded', function ()
             });
         }
 
-        // global verfuegbar machen, damit spaeter nachgeladenes Markup
-        // (z.B. der Cookie-Banner) ebenfalls uebersetzt werden kann
         window.applyTranslations = applyTranslations;
 
         applyTranslations(currentLang);
 
-        langSelect.addEventListener('change', function ()
+        if (langSelect)
         {
-            currentLang = this.value;
-            if (!window.CookieConsent || window.CookieConsent.canStore())
+            langSelect.addEventListener('change', function ()
             {
-                localStorage.setItem('selectedLang', currentLang);
-            }
-            document.documentElement.lang = currentLang;
-            applyTranslations(currentLang);
-        });
+                currentLang = this.value;
+                if (!window.CookieConsent || window.CookieConsent.canStore())
+                {
+                    localStorage.setItem('selectedLang', currentLang);
+                }
+                document.documentElement.lang = currentLang;
+                applyTranslations(currentLang);
+            });
+        }
     })();
 
-    // --- Cookie-Consent-Banner (nachgeladen) ---
     (async function ()
     {
         var STORAGE_KEY = 'cookieConsent';
@@ -89,12 +86,10 @@ document.addEventListener('DOMContentLoaded', function ()
             canStore: function () { return localStorage.getItem(STORAGE_KEY) !== 'declined'; }
         };
 
-        // Markup laden und einfügen
         const response = await fetch('/SRC/cookie-banner.html');
         const html = await response.text();
         document.getElementById('cookie-banner-placeholder').innerHTML = html;
 
-        // Erst jetzt existiert #cookie-banner im DOM
         var banner = document.getElementById('cookie-banner');
 
         function hide ()
@@ -116,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function ()
             hide();
         });
 
-        // Übersetzungen auf neu eingefügtes Markup anwenden, falls i18n schon geladen ist
         if (window.applyTranslations)
         {
             window.applyTranslations(document.documentElement.lang);
