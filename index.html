@@ -30,7 +30,7 @@
                 var theme = window.THEMES.find(function (t) 
                 { 
                     return t.id === localStorage.getItem("selectedTheme"); 
-                }) || window.THEMES.find(function (t) { return t.id === "artemis-ii"; })
+                }) || window.THEMES.find(function (t) { return t.id === "modern-dark"; })
 
                 window.ACTIVE_THEME = theme;
                 document.write('<link rel="stylesheet" href="/Themes/' + encodeURI(theme.folder) + '/index.css">');
@@ -306,6 +306,7 @@
                 </article>
             </div>
         </section>
+
 
         <div id="footer-placeholder"></div>
         <script>
