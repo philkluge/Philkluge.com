@@ -14,6 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/SRC/ui.css">
 
         <script>
             window.THEMES = 
@@ -94,9 +95,9 @@
                 </div>
             </div>
         </section>
+
         <div id="footer-placeholder"></div>
-        <script>
-            fetch('/SRC/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
-        </script>
+        <div id="cookie-banner-placeholder"></div>
+        <script src="/SRC/UI.js"></script>
     </body>
 </html>

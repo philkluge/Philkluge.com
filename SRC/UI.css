@@ -1,0 +1,130 @@
+#theme-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#theme-switcher label {
+    color: #ffffff;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    user-select: none;
+}
+
+#theme-switcher select {
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff;
+    border: 0px #000000;
+    padding: 6px 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    background-color: #000000;
+    width: fit-content;
+    min-width: 0;
+}
+
+#theme-switcher select:hover,
+#theme-switcher select:focus {
+    border-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+
+#cookie-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 10000;
+    box-sizing: border-box;
+    width: min(680px, calc(100% - 32px));
+    padding: 20px 22px;
+    background: rgba(24, 26, 28, 0.96);
+    border: 1px solid rgba(184, 188, 193, 0.24);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    font-family: 'Share Tech Mono', monospace;
+    color: #f1f3f5;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#cookie-banner.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#cookie-banner .cb-title {
+    margin: 0 0 8px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f8f9fa;
+}
+
+#cookie-banner .cb-text {
+    margin: 0 0 16px 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: #c8ccd1;
+}
+
+#cookie-banner .cb-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#cookie-banner button {
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#cookie-banner .cb-accept {
+    background: #f2f4f6;
+    color: #1f2328;
+    border: 1px solid #f2f4f6;
+    font-weight: 700;
+}
+
+#cookie-banner .cb-accept:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+#cookie-banner .cb-decline {
+    background: transparent;
+    color: #a9adb2;
+    border: 1px solid rgba(169, 173, 178, 0.45);
+}
+
+#cookie-banner .cb-decline:hover {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+@media (max-width: 480px) {
+    #cookie-banner .cb-actions { flex-direction: column; }
+    #cookie-banner button { width: 100%; }
+}

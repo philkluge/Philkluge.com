@@ -14,6 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/SRC/ui.css">
         
         <script>
             window.THEMES = 
@@ -37,153 +38,6 @@
                 document.write('<script src="/Themes/' + encodeURI(theme.folder) + '/index.js"><' + '/script>');
             })();
         </script>
-        <style>
-            #theme-switcher 
-            {
-                position: fixed;
-                top: 16px;
-                right: 16px;
-                z-index: 9999;
-                font-family: 'Share Tech Mono', monospace;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-            #theme-switcher label 
-            {
-                color: #ffffff;
-                font-size: 0.85rem;
-                letter-spacing: 0.05em;
-                user-select: none;
-            }
-
-            #theme-switcher select 
-            {
-                background: rgba(0, 0, 0, 0);
-                color: #ffffff;
-                border: 0px #000000;
-                padding: 6px 10px;
-                font-family: inherit;
-                font-size: 0.85rem;
-                cursor: pointer;
-                backdrop-filter: blur(4px);
-                background-color: #000000;
-                width: fit-content;
-                min-width: 0;
-            }
-
-            #theme-switcher select:hover,
-            #theme-switcher select:focus 
-            {
-                border-color: rgba(0, 0, 0, 0);
-                outline: none;
-            }
-
-            #cookie-banner 
-            {
-                position: fixed;
-                left: 50%;
-                bottom: 24px;
-                transform: translateX(-50%);
-                z-index: 10000;
-                box-sizing: border-box;
-                width: min(680px, calc(100% - 32px));
-                padding: 20px 22px;
-                background: rgba(24, 26, 28, 0.96);
-                border: 1px solid rgba(184, 188, 193, 0.24);
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-                -webkit-backdrop-filter: blur(8px);
-                backdrop-filter: blur(8px);
-                font-family: 'Share Tech Mono', monospace;
-                color: #f1f3f5;
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-
-            #cookie-banner.is-visible 
-            {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-            }
-
-            #cookie-banner .cb-title 
-            {
-                margin: 0 0 8px 0;
-                font-family: 'Orbitron', sans-serif;
-                font-size: 1rem;
-                font-weight: 700;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: #f8f9fa;
-            }
-
-            #cookie-banner .cb-text 
-            {
-                margin: 0 0 16px 0;
-                font-size: 0.86rem;
-                line-height: 1.5;
-                color: #c8ccd1;
-            }
-
-            #cookie-banner .cb-actions 
-            {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            #cookie-banner button 
-            {
-                margin: 0;
-                font-family: 'Share Tech Mono', monospace;
-                font-size: 0.82rem;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                line-height: 1;
-                padding: 10px 18px;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            }
-
-            #cookie-banner .cb-accept 
-            {
-                background: #f2f4f6;
-                color: #1f2328;
-                border: 1px solid #f2f4f6;
-                font-weight: 700;
-            }
-
-            #cookie-banner .cb-accept:hover 
-            {
-                background: #ffffff;
-                border-color: #ffffff;
-            }
-
-            #cookie-banner .cb-decline 
-            {
-                background: transparent;
-                color: #a9adb2;
-                border: 1px solid rgba(169, 173, 178, 0.45);
-            }
-
-            #cookie-banner .cb-decline:hover 
-            {
-                color: #f8f9fa;
-                border-color: #f8f9fa;
-            }
-
-            @media (max-width: 480px) 
-            {
-                #cookie-banner .cb-actions { flex-direction: column; }
-                #cookie-banner button { width: 100%; }
-            }
-        </style>
     </head>
     <body>
         <div id="theme-switcher">
@@ -194,34 +48,6 @@
                 <option value="es">🇪🇸 ES</option>
             </select>
         </div>
-
-        <script>
-            (function () 
-            {
-                var select = document.getElementById("theme-select");
-
-                window.THEMES.forEach(function (t) 
-                {
-                    var opt = document.createElement("option");
-                    opt.value = t.id;
-                    opt.textContent = t.name;
-                    if (window.ACTIVE_THEME && t.id === window.ACTIVE_THEME.id) 
-                    {
-                        opt.selected = true;
-                    }
-                    select.appendChild(opt);
-                });
-
-                select.addEventListener("change", function () 
-                {
-                    if (!window.CookieConsent || window.CookieConsent.canStore()) 
-                    {
-                        localStorage.setItem("selectedTheme", select.value);
-                    }
-                    location.reload();
-                });
-            })();
-        </script>
 
         <canvas id="Canvas" aria-hidden="true"></canvas>
         <div class="Background" aria-hidden="true"></div>
@@ -309,98 +135,8 @@
 
 
         <div id="footer-placeholder"></div>
-        <script>
-            fetch('/SRC/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
-        </script>
+        <div id="cookie-banner-placeholder"></div>
+        <script src="/SRC/UI.js"></script>
         
-        <script>
-            (async function() 
-            {
-                const langSelect = document.getElementById('lang-select');
-                let currentLang = localStorage.getItem('selectedLang') || 'en';
-                langSelect.value = currentLang;
-                document.documentElement.lang = currentLang;
-
-                let translations = {};
-                const response = await fetch('/SRC/translations.json');
-                translations = await response.json();
-
-                function applyTranslations(lang) 
-                {
-                    if (!translations[lang]) return;
-                    
-                    const elements = document.querySelectorAll('[data-i18n]');
-                    elements.forEach(el => 
-                    {
-                        const key = el.getAttribute('data-i18n');
-                        if (translations[lang][key]) 
-                        {
-                            el.textContent = translations[lang][key];
-                        }
-                    });
-                }
-
-                applyTranslations(currentLang);
-
-                langSelect.addEventListener('change', function() 
-                {
-                    currentLang = this.value;
-                    if (!window.CookieConsent || window.CookieConsent.canStore()) 
-                    {
-                        localStorage.setItem('selectedLang', currentLang);
-                    }
-                    document.documentElement.lang = currentLang;
-                    applyTranslations(currentLang);
-                });
-            })();
-        </script>
-
-        <aside id="cookie-banner" role="dialog" aria-live="polite" aria-label="Local storage notice">
-            <p class="cb-title" data-i18n="cookie-title">Datenschutz / Local Storage</p>
-            <p class="cb-text" data-i18n="cookie-text">Diese Seite speichert dein ausgewähltes Theme und deine Sprache lokal in deinem Browser (localStorage), damit deine Einstellungen beim nächsten Besuch erhalten bleiben. Kein Tracking, keine Dritten, keine Übertragung an einen Server.</p>
-            <div class="cb-actions">
-                <button type="button" class="cb-accept" data-i18n="cookie-accept">Akzeptieren</button>
-                <button type="button" class="cb-decline" data-i18n="cookie-decline">Ablehnen</button>
-            </div>
-        </aside>
-
-        <script>
-            (function () 
-            {
-                var STORAGE_KEY = 'cookieConsent';
-
-                window.CookieConsent = 
-                {
-                    value: function () { return localStorage.getItem(STORAGE_KEY); },
-                    canStore: function () { return localStorage.getItem(STORAGE_KEY) !== 'declined'; }
-                };
-
-                var banner = document.getElementById('cookie-banner');
-
-                function hide () 
-                {
-                    banner.classList.remove('is-visible');
-                }
-
-                banner.querySelector('.cb-accept').addEventListener('click', function () 
-                {
-                    localStorage.setItem(STORAGE_KEY, 'accepted');
-                    hide();
-                });
-
-                banner.querySelector('.cb-decline').addEventListener('click', function () 
-                {
-                    localStorage.setItem(STORAGE_KEY, 'declined');
-                    localStorage.removeItem('selectedTheme');
-                    localStorage.removeItem('selectedLang');
-                    hide();
-                });
-
-                if (!window.CookieConsent.value()) 
-                {
-                    requestAnimationFrame(function () { banner.classList.add('is-visible'); });
-                }
-            })();
-        </script>
     </body>
 </html>
