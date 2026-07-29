@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /.well-known/
+Disallow: /Pages/
+Disallow: /Themes/
+Disallow: /_headers
+Disallow: /_redirects
+
+User-agent: Googlebot
+Allow: /Themes/
+Allow: /Pages/IMG/*
+
+Sitemap: https://philkluge.com/sitemap.xml
