@@ -1,9 +1,12 @@
 /impressum          /SRC/imprint                  200
+/imprint            /SRC/imprint                  200
 /privacy            /SRC/privacy                  200
 /dsgvo              /SRC/privacy                  200
-/tfc                /projects/rfc/                200
+/tfc                /projects/tfc/                200
 /eti                /projects/eti/                200
 /fuel-tracker-ii    /projects/fuel-tracker-II/    200
 /if-games           /projects/if-games/           200
 /MKDD-Ultimate      /projects/MKDD-Ultimate/      200
+/MKDD               /projects/MKDD-Ultimate/      200
 /non-stop-pop-fm    /projects/non-stop-pop-fm/    200
+/nspfm              /projects/non-stop-pop-fm/    200
