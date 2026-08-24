@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title data-i18n="privacy-page-title">Privacy Policy | Phil Kluge</title>
+
+        <link rel="icon" type="image/png" href="/SRC/PK Logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+        <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ddd;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .legal-card {
+            background: #121212;
+            border: 1px solid #333;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        #lang-select {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: 'Share Tech Mono', monospace;
+            cursor: pointer;
+            font-size: 16px;
+            min-height: 44px;
+        }
+        #lang-select:focus {
+            outline: 1px solid #00d4ff;
+        }
+        h1 {
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+        h2 {
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-top: 40px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #333;
+        }
+        p { line-height: 1.7; color: #ccc; }
+        strong { color: #fff; }
+        a { color: #00d4ff; text-decoration: none; word-break: break-word; }
+        a:hover { text-decoration: underline; }
+        .back-nav { margin: 0; }
+        .back-btn { color: #888; font-size: 0.85rem; letter-spacing: 1px; }
+        .back-btn:hover { color: #00d4ff; text-decoration: none; }
+
+        @media (max-width: 600px)
+        {
+            body { padding: 0; }
+            .legal-card
+            {
+                border-radius: 0;
+                min-height: 100vh;
+                padding: 24px 18px;
+            }
+            .top-bar {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .back-btn {
+                font-size: 0.8rem;
+            }
+            p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 360px)
+        {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #lang-select {
+                width: 100%;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <section class="legal-section" aria-labelledby="datenschutz-title">
+            <div class="legal-card">
+                <div class="top-bar">
+                    <nav class="back-nav">
+                        <a href="/index.html" class="back-btn" data-i18n="proj-MKDD-btn-back" aria-label="Back to main page">← BACK TO MAIN</a>
+                    </nav>
+                    <select id="lang-select" aria-label="Language / Sprache">
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </div>
+
+                <h1 id="datenschutz-title" data-i18n="privacy-title">Privacy Policy</h1>
+                
+                <h2 data-i18n="privacy-preamble-title">Preamble</h2>
+                <p data-i18n="privacy-preamble-desc">With the following privacy policy, we would like to inform you about the types of personal data we process, for what purposes, and to what extent within our portfolio website.</p>
+
+                <h2 data-i18n="privacy-controller-title">Controller</h2>
+                <p>
+                    <strong>Phil Kluge</strong><br>
+                    Giesenfeldstraße<br>
+                    47239 Duisburg, Germany<br>
+                    Email: <a href="mailto:contact@philkluge.com">contact@philkluge.com</a><br>
+                    Website/Impressum: <a href="https://philkluge.com/imprint" target="_blank">https://philkluge.com/imprint</a>
+                </p>
+
+                <h2 data-i18n="privacy-hosting-title">Hosting & Infrastructure (Cloudflare)</h2>
+                <p data-i18n="privacy-hosting-desc">Our website is hosted and managed using Cloudflare. To ensure reliable and secure delivery of our services, connection logs and operational infrastructure data are processed via Cloudflare servers.</p>
+
+                <h2 data-i18n="privacy-fonts-title">External Content & Fonts (Google Fonts)</h2>
+                <p data-i18n="privacy-fonts-desc">This site loads typography stylesheets directly from Google servers (Google Fonts) to provide a unified design. When accessing these fonts, your IP address is transferred to Google.</p>
+
+                <h2 data-i18n="privacy-drive-title">Content Integration (Google Drive)</h2>
+                <p data-i18n="privacy-drive-desc">We fetch and display specific content elements directly from Google Drive. Accessing these components involves data exchanges with Google services.</p>
+
+                <h2 data-i18n="privacy-github-title">Third-Party Platforms (GitHub)</h2>
+                <p data-i18n="privacy-github-desc">Our portfolio includes connections and direct links to GitHub to showcase projects and repositories. Interacting with these external resources establishes a link to GitHub's platform.</p>
+
+                <h2 data-i18n="cookie-title">Privacy / Local Storage</h2>
+                <p data-i18n="cookie-text">This site stores your selected theme and language locally in your browser (localStorage) so your preferences are kept on your next visit. No tracking, no third parties, no transfer to a server.</p>
+
+                <h2 data-i18n="privacy-rights-title">Rights of the Data Subject</h2>
+                <p data-i18n="privacy-rights-desc">Under the GDPR, you hold full rights regarding your personal data, including the right to access, correct, restrict processing, object to processing, or request data deletion by contacting the controller.</p>
+            </div>
+        </section>
+
+        <script>
+            (async function()
+            {
+                const langSelect = document.getElementById('lang-select');
+                let currentLang = localStorage.getItem('selectedLang') || 'en';
+
+                if (langSelect) {
+                    langSelect.value = currentLang;
+                }
+                document.documentElement.lang = currentLang;
+
+                async function applyTranslations(lang) {
+                    try {
+                        const response = await fetch('/SRC/translations.json');
+                        const translations = await response.json();
+
+                        if (translations[lang]) {
+                            const elements = document.querySelectorAll('[data-i18n]');
+                            elements.forEach(el => {
+                                const key = el.getAttribute('data-i18n');
+                                if (translations[lang][key]) {
+                                    el.textContent = translations[lang][key];
+                                }
+                            });
+                        }
+                    } catch (error) {
+                        console.error("Failed to load translations:", error);
+                    }
+                }
+                await applyTranslations(currentLang);
+
+                if (langSelect) {
+                    langSelect.addEventListener('change', async (e) => {
+                        const selectedLang = e.target.value;
+                        localStorage.setItem('selectedLang', selectedLang);
+                        document.documentElement.lang = selectedLang;
+                        await applyTranslations(selectedLang);
+                    });
+                }
+            })();
+        </script>
+    </body>
+</html>
