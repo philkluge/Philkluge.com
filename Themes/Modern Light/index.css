@@ -119,6 +119,7 @@ body {
     margin-bottom: 2.2rem;
     opacity: 0;
     animation: fadeIn 0.7s ease 0.25s forwards;
+    text-align: center;
 }
 
 .title-line {

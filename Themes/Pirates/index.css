@@ -170,6 +170,7 @@ body {
     letter-spacing: 0.18em;
     margin-bottom: 2rem;
     animation: fadeSlideUp 1.1s ease 0.7s both;
+    text-align: center;
 }
 
 .title-line {

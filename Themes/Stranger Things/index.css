@@ -166,6 +166,7 @@ body {
     margin-bottom: 2rem;
     animation: flickerPulse 4s infinite, fadeSlideUp 1s ease 0.6s both;
     will-change: opacity;
+    text-align: center;
 }
 
 @keyframes flickerPulse {
