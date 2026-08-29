@@ -68,7 +68,30 @@
     "privacy-github-title": "Third-Party Platforms (GitHub)",
     "privacy-github-desc": "Our portfolio includes connections and direct links to GitHub to showcase projects and repositories. Interacting with these external resources establishes a link to GitHub's platform.",
     "privacy-rights-title": "Rights of the Data Subject",
-    "privacy-rights-desc": "Under the GDPR, you hold full rights regarding your personal data, including the right to access, correct, restrict processing, object to processing, or request data deletion by contacting the controller."
+    "privacy-rights-desc": "Under the GDPR, you hold full rights regarding your personal data, including the right to access, correct, restrict processing, object to processing, or request data deletion by contacting the controller.",
+  
+
+
+
+    "privacy-ft-page-title": "Privacy Policy | Fuel Tracker",
+    "privacy-ft-title": "Privacy Policy",
+    "privacy-ft-preamble-title": "Preamble",
+    "privacy-ft-preamble-desc": "With the following privacy policy, we would like to inform you about the types of personal data we process, for what purposes, and to what extent within our Mobile Application.",
+    "privacy-ft-1-title": "Local Data Storage",
+    "privacy-ft-1-desc": "The application is designed with a privacy-first approach. All user-generated data and settings are stored locally on your device using a local database. We do not operate backend servers to collect, transmit, sync, or back up this information. You maintain absolute control over your data.",
+    "privacy-ft-2-title": "Location Data & Third-Party API (Tankerkoenig.de)",
+    "privacy-ft-2-desc": "To provide you with nearby fuel prices, the app requires temporary access to your device's location. This location data are sent directly to the Tankerkönig API solely to retrieve nearby fuel stations. Your location is never stored locally, nor is it transmitted to us or shared with any other third parties.",
+    "privacy-ft-3-title": "Device Permissions",
+    "privacy-ft-3-desc": "The app requests location permissions to function as intended. You have the right to grant, manage, or revoke these permissions (such as approximate or precise location) at any time directly through your Android operating system settings.",
+    "privacy-ft-4-title": "Rights of the Data Subject",
+    "privacy-ft-4-desc": "Under the GDPR, you hold rights regarding your personal data. However, because all personal data is processed and stored exclusively on your local device and is never transmitted to us, you can directly exercise your right to deletion by clearing the application's data in your Android settings or by uninstalling the app entirely.",
+    "privacy-ft-5-title": "Data Source & Licensing",
+    "privacy-ft-5-desc": "Fuel prices and station data displayed in this application are retrieved via the Tankerkönig API. The data is provided under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. The original source of the data is the Markttransparenzstelle für Kraftstoffe (MTS-K)."
+  
+  
+  
+  
+  
   },
   "de": {
     "hero-subtitle": "Softwareentwickler",
