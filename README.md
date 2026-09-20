@@ -5,3 +5,7 @@
   <br /><br />
   <a href="philkluge.com">Go to philkluge.com</a>
 </p>
+
+
+
+[Imprint](https://philkluge.com/impressum) | [Privacy Policy](https://philkluge.com/fueltracker-privacy)
