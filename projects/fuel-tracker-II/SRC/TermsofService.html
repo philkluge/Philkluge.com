@@ -77,6 +77,7 @@
         .back-nav { margin: 0; }
         .back-btn { color: #888; font-size: 0.85rem; letter-spacing: 1px; }
         .back-btn:hover { color: #00d4ff; text-decoration: none; }
+        .legal-version { color: #888; font-size: 0.85rem; margin-top: 40px; }
 
         @media (max-width: 600px)
         {
@@ -125,38 +126,68 @@
                     </select>
                 </div>
 
-                <h1 id="datenschutz-title" data-i18n="tos-ft-title"></h1>
+                <h1 id="datenschutz-title" data-i18n="tos-ft-title">Terms of Service</h1>
 
+                <h2 data-i18n="tos-ft-preamble-title"></h2>
+                <p data-i18n="tos-ft-preamble-desc"></p>
+
+                <!-- 1 Description of Service -->
                 <h2 data-i18n="tos-ft-1-title"></h2>
                 <p data-i18n="tos-ft-1-desc"></p>
+
+                <!-- 2 Local Data & Backups -->
                 <h2 data-i18n="tos-ft-2-title"></h2>
                 <p data-i18n="tos-ft-2-desc"></p>
+
+                <!-- 3 Third-Party Services -->
                 <h2 data-i18n="tos-ft-3-title"></h2>
                 <p data-i18n="tos-ft-3-desc"></p>
-                <p data-i18n="tos-ft-3-desc-1"></p>
-                <p data-i18n="tos-ft-3-desc-2"></p>
+
+                <!-- 4 Fuel Price and Vehicle Data Disclaimer -->
                 <h2 data-i18n="tos-ft-4-title"></h2>
                 <p data-i18n="tos-ft-4-desc"></p>
-                <p data-i18n="tos-ft-4-desc-1"></p>
+
+                <!-- 5 Device Permissions -->
                 <h2 data-i18n="tos-ft-5-title"></h2>
                 <p data-i18n="tos-ft-5-desc"></p>
+
+                <!-- 6 Intellectual Property and License -->
                 <h2 data-i18n="tos-ft-6-title"></h2>
                 <p data-i18n="tos-ft-6-desc"></p>
+
+                <!-- 7 Trademarks -->
                 <h2 data-i18n="tos-ft-7-title"></h2>
                 <p data-i18n="tos-ft-7-desc"></p>
+
+                <!-- 8 No Warranty -->
                 <h2 data-i18n="tos-ft-8-title"></h2>
                 <p data-i18n="tos-ft-8-desc"></p>
+
+                <!-- 9 Limitation of Liability -->
                 <h2 data-i18n="tos-ft-9-title"></h2>
                 <p data-i18n="tos-ft-9-desc"></p>
+
+                <!-- 10 Changes to the Terms -->
                 <h2 data-i18n="tos-ft-10-title"></h2>
                 <p data-i18n="tos-ft-10-desc"></p>
+
+                <!-- 11 Termination -->
                 <h2 data-i18n="tos-ft-11-title"></h2>
                 <p data-i18n="tos-ft-11-desc"></p>
+
+                <!-- 12 Governing Law -->
                 <h2 data-i18n="tos-ft-12-title"></h2>
                 <p data-i18n="tos-ft-12-desc"></p>
-                <p> 
-                    Email: <a href="mailto:contact@philkluge.com">contact@philkluge.com</a>
+
+                <!-- 13 Contact -->
+                <h2 data-i18n="tos-ft-13-title"></h2>
+                <p data-i18n="tos-ft-13-desc"></p>
+                <p>
+                    Email: <a href="mailto:contact@philkluge.com">contact@philkluge.com</a><br>
+                    Website/Impressum: <a href="https://philkluge.com/imprint" target="_blank">https://philkluge.com/imprint</a>
                 </p>
+
+                <p class="legal-version" data-i18n="tos-ft-version"></p>
 
             </div>
         </section>
@@ -165,7 +196,7 @@
             (async function()
             {
                 const langSelect = document.getElementById('lang-select');
-                let currentLang = localStorage.getItem('selectedLang') || 'en';
+                let currentLang = localStorage.getItem('selectedLang') || 'de';
 
                 if (langSelect) {
                     langSelect.value = currentLang;

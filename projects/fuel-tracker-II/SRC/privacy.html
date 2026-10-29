@@ -77,6 +77,7 @@
         .back-nav { margin: 0; }
         .back-btn { color: #888; font-size: 0.85rem; letter-spacing: 1px; }
         .back-btn:hover { color: #00d4ff; text-decoration: none; }
+        .legal-version { color: #888; font-size: 0.85rem; margin-top: 40px; }
 
         @media (max-width: 600px)
         {
@@ -130,7 +131,8 @@
                 <h2 data-i18n="privacy-ft-preamble-title"></h2>
                 <p data-i18n="privacy-ft-preamble-desc"></p>
 
-                <h2 data-i18n="privacy-ft-controller-title">Controller</h2>
+                <!-- 0 Controller -->
+                <h2 data-i18n="privacy-ft-0-title">Controller</h2>
                 <p>
                     <strong>Phil Kluge</strong><br>
                     Giesenfeldstraße<br>
@@ -138,23 +140,74 @@
                     Email: <a href="mailto:contact@philkluge.com">contact@philkluge.com</a><br>
                     Website/Impressum: <a href="https://philkluge.com/imprint" target="_blank">https://philkluge.com/imprint</a>
                 </p>
+                <p data-i18n="privacy-ft-0-desc"></p>
 
+                <!-- 1 Local Data Storage -->
                 <h2 data-i18n="privacy-ft-1-title"></h2>
                 <p data-i18n="privacy-ft-1-desc"></p>
+                <p data-i18n="privacy-ft-1-desc-1"></p>
+
+                <!-- 2 Fuel Station Search (Location & Tankerkönig) -->
                 <h2 data-i18n="privacy-ft-2-title"></h2>
                 <p data-i18n="privacy-ft-2-desc"></p>
-                <p><a href="https://www.tankerkoenig.de/datenschutz" target="_blank" data-i18n="privacy-ft-2-desc-1"></a></p>
+                <p data-i18n="privacy-ft-2-desc-1"></p>
+                <p><a href="https://www.tankerkoenig.de/datenschutz" target="_blank" data-i18n="privacy-ft-2-desc-2"></a></p>
+
+                <!-- 3 Ford Connection -->
                 <h2 data-i18n="privacy-ft-3-title"></h2>
                 <p data-i18n="privacy-ft-3-desc"></p>
                 <p data-i18n="privacy-ft-3-desc-1"></p>
                 <p data-i18n="privacy-ft-3-desc-2"></p>
+                <p><a href="https://www.ford.de/nuetzliche-informationen/geschaeftsbedingungen-und-datenschutz" target="_blank" data-i18n="privacy-ft-3-desc-3"></a></p>
+
+                <!-- 4 Receipt Scanning (Camera) -->
                 <h2 data-i18n="privacy-ft-4-title"></h2>
                 <p data-i18n="privacy-ft-4-desc"></p>
                 <p data-i18n="privacy-ft-4-desc-1"></p>
+                <p><a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+                <p data-i18n="privacy-ft-4-desc-2"></p>
+
+                <!-- 5 Data Export and Import -->
                 <h2 data-i18n="privacy-ft-5-title"></h2>
                 <p data-i18n="privacy-ft-5-desc"></p>
-                <p><a href=" https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC BY 4.0</a></p>
+
+                <!-- 6 Navigation to a Fuel Station -->
+                <h2 data-i18n="privacy-ft-6-title"></h2>
+                <p data-i18n="privacy-ft-6-desc"></p>
+
+                <!-- 7 Legal Texts and Website -->
+                <h2 data-i18n="privacy-ft-7-title"></h2>
+                <p data-i18n="privacy-ft-7-desc"></p>
+
+                <!-- 8 Device Permissions -->
+                <h2 data-i18n="privacy-ft-8-title"></h2>
+                <p data-i18n="privacy-ft-8-desc"></p>
+
+                <!-- 9 No Tracking, No Advertising -->
+                <h2 data-i18n="privacy-ft-9-title"></h2>
+                <p data-i18n="privacy-ft-9-desc"></p>
+
+                <!-- 10 Storage Period and Deletion -->
+                <h2 data-i18n="privacy-ft-10-title"></h2>
+                <p data-i18n="privacy-ft-10-desc"></p>
+
+                <!-- 11 Your Rights -->
+                <h2 data-i18n="privacy-ft-11-title"></h2>
+                <p data-i18n="privacy-ft-11-desc"></p>
+                <p data-i18n="privacy-ft-11-desc-1"></p>
+                <p><a href="https://www.ldi.nrw.de" target="_blank">www.ldi.nrw.de</a></p>
+
+                <!-- 12 Data Source & Licensing -->
+                <h2 data-i18n="privacy-ft-12-title"></h2>
+                <p data-i18n="privacy-ft-12-desc"></p>
+                <p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC BY 4.0</a></p>
                 <p><a href="https://creativecommons.tankerkoenig.de/" target="_blank">Tankerkoenig API</a></p>
+
+                <!-- 13 Changes to this Privacy Policy -->
+                <h2 data-i18n="privacy-ft-13-title"></h2>
+                <p data-i18n="privacy-ft-13-desc"></p>
+
+                <p class="legal-version" data-i18n="privacy-ft-version"></p>
 
             </div>
         </section>
@@ -163,7 +216,7 @@
             (async function()
             {
                 const langSelect = document.getElementById('lang-select');
-                let currentLang = localStorage.getItem('selectedLang') || 'en';
+                let currentLang = localStorage.getItem('selectedLang') || 'de';
 
                 if (langSelect) {
                     langSelect.value = currentLang;
