@@ -3,9 +3,9 @@
   <br />
   <strong>My Personal portfolio website</strong>
   <br /><br />
-  <a href="philkluge.com">Go to philkluge.com</a>
+  <a href="https://philkluge.com">Go to philkluge.com</a>
 </p>
 
 
 
-[Imprint](https://philkluge.com/impressum) | [Privacy Policy](https://philkluge.com/fueltracker-privacy)
+[Imprint](https://philkluge.com/imprint) | [Privacy Policy](https://philkluge.com/privacy)
